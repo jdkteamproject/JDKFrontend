@@ -1,27 +1,76 @@
-<div class="container">
-  <div class="row">
-      <div class="col-lg-10 col-xl-9 mx-auto">
-          <div class="card card-signin flex-row my-5">
-              <div class="card-img-left d-none d-md-flex"></div>
-                  <div class="card-body">
-                      <div id="loginData">
-                          <h5 class="card-title text-center">Peak Reimbursements</h5>
-                          <hr>
-                          <form class="form-signin">
-                              <div class="form-label-group">
-                                  <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus> 
-                                  <label for="inputUserame">Username</label>
-                              </div>
-                              <div class="form-label-group">
-                                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required> 
-                                  <label for="inputPassword">Password</label>
-                              </div>
-                              <button class="btn btn-lg btn-primary btn-block text-uppercase" routerLink=""   type="submit">Register</button>
-                              <hr class="my-4">
-                      </form>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+                <div class="card card-signin flex-row my-5">
+                    <div class="card-img-left d-none d-md-flex"></div>
+                    <div class="card-body">
+                        <div id="registerData">
+                            <h5 class="card-title text-center">Connecting Users Thru Events</h5>
+                            <hr>
+                            <form class="form-signin">
+                                <div class="form-label-group">
+                                    <input type="text" id="inputfirstName" class="form-control" placeholder="firstName"
+                                        required=false autofocus>
+                                    <label for="inputFirstName">First Name</label>
+                                </div>
+                                <div class="form-label-group">
+                                    <input type="text" id="inputLastName" class="form-control" placeholder="lastName"
+                                        required=false autofocus>
+                                    <label for="inputLastName">Last Name</label>
+                                </div>
+                                <div class="form-label-group">
+                                    <input type="text" id="inputUserName" class="form-control" placeholder="userName"
+                                        required=false autofocus>
+                                    <label for="inputUserName">Username</label>
+                                </div>
+                                <div class="form-label-group">
+                                    <input type="password" id="inputEmail" class="form-control" placeholder="email"
+                                        required=false>
+                                    <label for="inputEmail">Email</label>
+                                </div>
+                                <div class="form-label-group">
+                                    <input type="password" id="inputPassword1" class="form-control"
+                                        placeholder="Password1" required=false>
+                                    <label for="inputPassword1">Password</label>
+                                </div>
+                                <div class="form-label-group">
+                                    <input type="password" id="inputPassword2" class="form-control"
+                                        placeholder="Password2" required=false>
+                                    <label for="inputPassword2"> Confirm Password</label>
+                                </div>
+                                <div class="form-label-group">
+                                    <select id="selectRegion">
+                                        <option>Region 1</option>
+                                        <option>Region 2</option>
+                                    </select>
+                                </div>
+                                <div class="form-label-group">
+                                    <select id="selectCategories">
+                                        <option>Category 1</option>
+                                        <option>Category 2</option>
+                                    </select>
+                                </div>
+                                <hr class="my-4">
+                                <button class="btn btn-lg btn-secondary btn-block text-uppercase" routerLink=""
+                                    type="submit">Register</button>
+                                <hr class="my-4">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

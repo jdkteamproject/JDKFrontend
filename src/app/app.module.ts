@@ -8,6 +8,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PersonalProfileComponent } from './components/personal-profile/personal-profile.component';
 import { EventsComponent } from './components/events/events.component';
+import { AdminPageComponent } from './components/admin-page/admin-page.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { EventsComponent } from './components/events/events.component';
     RegisterComponent,
     DashboardComponent,
     PersonalProfileComponent,
-    EventsComponent
+    EventsComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
