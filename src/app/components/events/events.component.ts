@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
+
 
 @Component({
   selector: 'app-events',
@@ -9,17 +9,22 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class EventsComponent implements OnInit {
 
-// private events = [];
-
-  private eventsObservable : Observable<any>;
-
-  constructor(private dataService: DataService) {
-
-    this.eventsObservable = this.dataService.get_AllEvents();
-
-   }
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {
+    this.getEvents();
   }
 
+  events: Object[] = [];
+
+  getEvents(){
+    this.dataService.get_AllEvents().then((res)=>{
+      const data = res;
+      console.log(data._embedded);
+      this.events = data._embedded.events;
+
+    })
+
+    .catch((e)=>console.log(e));
+  }
 }
