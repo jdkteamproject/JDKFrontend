@@ -20,10 +20,12 @@
                             <hr>
                             <form class="form-signin">
                                 <div class="form-label-group">
-                                    <input type="text" id="inputUserame" class="form-control" placeholder="Username">
+                                    <input type="text" style="text-align: center" id="loginEmail" class="form-control" placeholder="email" required=false autofocus>
+                                    <label for="loginEmail" style="text-align: center">Email</label>
                                 </div>
                                 <div class="form-label-group">
-                                    <input type="password" id="inputPassword" class="form-control" placeholder="Password">
+                                    <input type="password" style="text-align: center" id="loginPassword" class="form-control" placeholder="Password1" required=false autofocus>
+                                    <label for="loginPassword" style="text-align: center">Password</label>
                                 </div>
                                 <hr class="my-4">
                                 <button class="btn btn-lg btn-secondary btn-block text-uppercase" routerLink="/Dashboard" type="submit">Login</button>
@@ -37,5 +39,4 @@
         </div>
     </div>
 </body>
-
 </html>
