@@ -10,6 +10,7 @@ import { PersonalProfileComponent } from './components/personal-profile/personal
 import { EventsComponent } from './components/events/events.component';
 import { DataService } from './services/data.service';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
+import { PublicProfileComponent } from './components/public-profile/public-profile.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
     DashboardComponent,
     PersonalProfileComponent,
     EventsComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    PublicProfileComponent
   ],
   imports: [
     BrowserModule,

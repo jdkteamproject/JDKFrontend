@@ -1,3 +1,84 @@
-<p>
-  admin-pag works!
-</p>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Reoprts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <style>
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+      width: 100%;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .container {
+      padding: 2px 16px;
+    }
+  </style>
+</head>
+
+<body id="reports">
+  <header class="text-right">
+    <div class="second-icon menu-icon">
+      <span><a routerLink="" title="Login"><span class="hidden-xs hidden-sm">Logout</span> <i class="fa fa-database"
+            aria-hidden="true"></i></a>
+      </span>
+    </div>
+    <div class="second-icon menu-icon">
+        <span><a routerLink="/Profile" title="Profile"><span class="hidden-xs hidden-sm">Profile</span> <i class="fa fa-database"
+              aria-hidden="true"></i></a>
+        </span>
+      </div>
+    <div class="second-icon menu-icon">
+      <span><a routerLink="/Users" title="Users"><span class="hidden-xs hidden-sm">Users</span> <i class="fa fa-database"
+              aria-hidden="true"></i></a>
+      </span>
+    </div>
+    <div class="second-icon menu-icon">
+      <span><a routerLink="/Events" title="Events"><span class="hidden-xs hidden-sm">Events</span> <i
+            class="fa fa-database" aria-hidden="true"></i></a>
+      </span>
+    </div>
+    <div class="second-icon menu-icon">
+      <span><a routerLink="/Dashboard" title="Dashboard"><span class="hidden-xs hidden-sm">Dashboard</span> <i
+            class="fa fa-database" aria-hidden="true"></i></a>
+      </span>
+    </div>
+  </header>
+  <!--Wall with Post -->
+  <div class="content-posts active" id="userProfileInfo">
+    <div class="primary-content">
+      <div id="posts-container" class="container-fluid container-posts">
+        <div class="jumbotron">
+          <h2 style="text-align: center">Reported Events</h2>
+          <div id="reported-events">
+        
+          </div>
+          <br>
+          <h2 style="text-align: center">Reoprted Users</h2>
+          <div id="reported-events">
+        
+            </div>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Left Sidebar with info Profile -->
+  <div class="sidebar-nav">
+    <div class="card">
+      <img src="../../../assets/Images/logo.jpg" alt="Avatar" style="width:100%">
+      <div class="container">
+        <h4 style="text-align: center"><b>Reports</b></h4>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
