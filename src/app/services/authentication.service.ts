@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class AuthenticationService {
 
   private _registerUrl = "http://3.16.216.95:8085/cue/users";
-  private _loginUrl = "http://3.16.216.95:8085/cue/users";
+  private _loginUrl = "http://3.16.216.95:8085/cue/login?email=[inputEmail]&password=[inputPassword]";
 
   constructor(private http: HttpClient,
               private _router: Router) { }
