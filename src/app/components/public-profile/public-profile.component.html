@@ -27,12 +27,6 @@
     <form class="text-left search" method="GET">
       <input name="q" type="text" placeholder="Search..">
     </form>
-    <div class="menu-icon">
-
-    </div>
-    <div class="second-icon dropdown menu-icon">
-
-    </div>
     <div class="second-icon menu-icon">
       <span><a routerLink="" title="Login"><span class="hidden-xs hidden-sm">Logout</span> <i class="fa fa-database"
             aria-hidden="true"></i></a>
@@ -55,14 +49,46 @@
     </div>
   </header>
   </div>
-  <div class="sidebar-nav">
-      <div class="card">
-        <img src="../../../assets/Images/logo.jpg" alt="Avatar" style="width:100%">
-        <div class="container">
-          <h4 style="text-align: center"><b>Users</b></h4>
+  <div class="content-posts active" id="userProfileInfo">
+      <div class="primary-content">
+        <div id="posts-container" class="container-fluid container-posts">
+          <div class="jumbotron">
+            <h1 style="text-align: center">Personal Information</h1>
+            <div id="profile-info">
+              <span id="usernameLabel">Username: </span><br>
+              <P>Top Categories: </P>
+              <ol>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ol>
+              <h4>Past Events: </h4><br>
+              <div class="list-group" title="Saved Events">
+                <!-- <a href="#" class="list-group-item list-group-item-action list-group-item-info">Event 1</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-warning">Event 2</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-dark">Event 3</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Event 4</a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-primary">Event 5</a> -->
+              </div>
+            </div>
+            <br>
+            <p class="lead" style="text-align: center">
+              <span style="text-align: center"><a class="btn btn-secondary btn-lg" href="#" role="button">Connect!</a></span>
+              <span style="text-align: center"><a class="btn btn-danger btn-lg" href="#" role="button">Report!</a></span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
+
+      <div class="sidebar-nav">
+          <div class="card">
+            <img src="../../../assets/Images/logo.jpg" alt="Avatar" style="width:100%">
+            <div class="container">
+              <h4 style="text-align: center"><b>Users</b></h4>
+            </div>
+          </div>
+        </div>
 </body>
 
 </html>

@@ -23,14 +23,7 @@
 
   <body id="personal">
     <header class="text-right">
-      <!-- <div class="menu-icon">
-
-    </div>
-    <div class="second-icon dropdown menu-icon">
-
-
-    </div> -->
-      <div class="second-icon menu-icon">
+        <div class="second-icon menu-icon">
         <span
           ><a routerLink="" title="Wall"
             ><span class="hidden-xs hidden-sm">Logout</span>
@@ -48,6 +41,14 @@
         </span>
       </div>
       <div class="second-icon menu-icon">
+          <span
+            ><a routerLink="/Users" title="Users"
+              ><span class="hidden-xs hidden-sm">Users</span>
+              <i class="fa fa-database" aria-hidden="true"></i
+            ></a>
+          </span>
+        </div>
+      <div class="second-icon menu-icon">
         <span
           ><a routerLink="/Dashboard" title="Wall"
             ><span class="hidden-xs hidden-sm">Dashboard</span>
@@ -59,16 +60,18 @@
 
     <!--Left Sidebar with info Profile -->
     <div class="sidebar-nav">
-        <a href="personal-profile.html" title="Profile">
-            <img src="https://placehold.it/300x300" alt="User name" class="img-circle img-user">
-        </a>
-        <h2 class="text-center hidden-xs"><a href="personal-profile.html" title="Profile">My User</a></h2>
-        <p class="text-center user-description hidden-xs">
-            <i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</i>
-        </p>
-    </div>
+        <div class="card">
+          <img src="../../../assets/Images/logo.jpg" alt="Avatar" style="width:100%">
+          <div class="container">
+            <h4 style="text-align: center"><b>Events</b></h4>
+            <form class="text-left search" method="GET">
+              <input name="q" type="text" placeholder="Search..">
+            </form>
+          </div> 
+        </div>
+      </div>
 
-    <div class="content-posts active" id="posts">
+    <div class="content-posts active" id="eventPosts">
         <div class="primary-content">
             <div id="posts-container" class="container-fluid container-posts">
               <div class="row">
@@ -79,8 +82,8 @@
                             <p>{{event.dates.start.localDate}}</p>
                             <img src="{{event.images[0].url}}">
                             <div class="comments">
-                                <p>{{event.info}}</p>
-                                <p>{{event.url}}</p>
+                              <p>{{event.info}}</p>
+                              <p>{{event.url}}</p>
                             </div>
                         </div>
                     </div>
