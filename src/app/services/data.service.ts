@@ -8,7 +8,7 @@ import { from } from "rxjs";
   providedIn: "root"
 })
 export class DataService {
-  baseUrl: string = "http://18.223.119.112:8085/cue";
+  baseUrl: string = "http://3.16.216.95:8085/cue";
 
   constructor(private http: HttpClient) {}
 

@@ -18,18 +18,22 @@
                             <h1 class="card-title text-center">Connecting Users Thru Events</h1>
                             <br>
                             <hr>
-                            <form class="form-signin">
+                            <form class="form-signin" method="POST" action="http://localhost:4200/Dashboard">
                                 <div class="form-label-group">
-                                    <input type="text" style="text-align: center" id="loginEmail" class="form-control" placeholder="email" required=false autofocus>
+                                    <input type="text" style="text-align: center" id="loginEmail" class="form-control"
+                                        placeholder="email" required=false autofocus>
                                     <label for="loginEmail" style="text-align: center">Email</label>
                                 </div>
                                 <div class="form-label-group">
-                                    <input type="password" style="text-align: center" id="loginPassword" class="form-control" placeholder="Password1" required=false autofocus>
+                                    <input type="password" style="text-align: center" id="loginPassword"
+                                        class="form-control" placeholder="password" required=false autofocus>
                                     <label for="loginPassword" style="text-align: center">Password</label>
                                 </div>
                                 <hr class="my-4">
-                                <button class="btn btn-lg btn-secondary btn-block text-uppercase" routerLink="/Dashboard" type="submit">Login</button>
-                                <button class="btn btn-lg btn-secondary btn-block text-uppercase" routerLink="/Register"  type="submit">Register</button>
+                                <button class="btn btn-lg btn-secondary btn-block text-uppercase"
+                                    type="button" (click)="loginUser()">Login</button>
+                                <button class="btn btn-lg btn-secondary btn-block text-uppercase" routerLink="/Register"
+                                    type="button">Register</button>
                                 <hr class="my-4">
                             </form>
                         </div>
@@ -39,4 +43,5 @@
         </div>
     </div>
 </body>
+
 </html>
