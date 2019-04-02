@@ -1,3 +1,6 @@
+import { userEvent } from '../userEvent/userEvent.model';
+import { userNotification } from '../userNotification/userNotification.model';
+
 export interface User {
     id: number;
     email: string;
@@ -6,8 +9,8 @@ export interface User {
     reportedNum: number;
     region: string;
     category: string;
-    favEvents: any[];
-    friends: any[];
+    favEvents: userEvent[];
+    notifications: userNotification[];
     admin: boolean;
     banned: boolean;
 }
