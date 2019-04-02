@@ -28,17 +28,19 @@ export class DashboardComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.getEvents();
+    
     this.currentUserId = +window.localStorage.getItem('userId');
     this.dataService.getUserById(this.currentUserId).then((res)=>{
-    this.currentUser = res;
+      this.currentUser = res;
+      console.log(this.currentUser);
+      this.getEvents();
     }).catch((e)=>console.log(e))
   }
 
   events: Object[] = [];
 
   getEvents(){
-    this.dataService.get_AllUsersEvents().then((res)=>{
+    this.dataService.get_AllUsersEvents(this.currentUser.category, this.currentUser.region).then((res)=>{
       const data = res;
       console.log(data._embedded);
       this.events = data._embedded.events;

@@ -48,14 +48,16 @@ export class DataService {
     return this.http.get<EventModel>(`${this.baseUrl}/api?`+keyword+`=`+searchword).toPromise();
   }
 
-  get_AllUsersEvents(): Promise<EventModel> {
-    if(this.tester.category == null || this.tester.category == ""){
-      this.tester.category = "%20";
+  get_AllUsersEvents(category: string, region: string): Promise<EventModel> {
+    if(category == null || category == ""){
+      category = "%20";
     }
-    if(this.tester.region == null || this.tester.region == ""){
-      this.tester.region = "%20";
+    if(region == null || region == ""){
+      region = "%20";
     }
-    return this.http.get<EventModel>(`${this.baseUrl}/api?category=${this.tester.category}&city=${this.tester.region}`).toPromise();
+    let url: string = `${this.baseUrl}/api?category=${category}&city=${region}`;
+    console.log(url);
+    return this.http.get<EventModel>(url).toPromise();
   }
 
   // post_SaveEvent(eventId: string, event: EventModel): Observable<EventModel> {
