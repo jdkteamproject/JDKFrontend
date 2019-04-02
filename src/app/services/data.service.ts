@@ -23,7 +23,7 @@ export class DataService {
     "password": "123",
     "reportedNum": 0,
     "region": "New York",
-    "category": null,
+    "category": "sports",
     "favEvents": [],
     "notifications": [
     {
@@ -49,6 +49,12 @@ export class DataService {
   }
 
   get_AllUsersEvents(): Promise<EventModel> {
+    if(this.tester.category == null || this.tester.category == ""){
+      this.tester.category = "%20";
+    }
+    if(this.tester.region == null || this.tester.region == ""){
+      this.tester.region = "%20";
+    }
     return this.http.get<EventModel>(`${this.baseUrl}/api?category=${this.tester.category}&city=${this.tester.region}`).toPromise();
   }
 
