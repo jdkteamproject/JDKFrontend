@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class AuthenticationService {
 
   private _registerUrl = "http://3.16.216.95:8085/cue/users";
-  private _loginUrl = "http://3.16.216.95:8085/cue/login?email=[inputEmail]&password=[inputPassword]";
+  private _loginUrl = "http://3.16.216.95:8085/cue/login?email=newPerson@gmail.com&password=password1";
 
   constructor(private http: HttpClient,
               private _router: Router) { }
@@ -19,8 +19,8 @@ export class AuthenticationService {
     return this.http.post<any>(this._registerUrl, user)
   }
 
-  loginUser(user){
-    return this.http.post<any>(this._loginUrl, user)
+  loginUser(email:string, password:string){
+    return this.http.post<any>(this._loginUrl, {email, password})
   }
 
   logoutUser(){

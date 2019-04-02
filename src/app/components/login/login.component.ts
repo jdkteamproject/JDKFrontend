@@ -9,11 +9,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  
+  email: string = '';
+  password: string = '';
 
-  email: string = "";
-  password: string = "";
-
-  loginUserData = {email: " ", password: " "}
+  
+  loginUserData = {email:'', password:''}
 
   constructor(private _auth: AuthenticationService,
               private _router: Router) { }
@@ -22,13 +23,14 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser() {
-    this._auth.loginUser(this.loginUserData)
+    this._auth.loginUser(this.loginUserData.email, this.loginUserData.password)
     .subscribe(
       res => {
         localStorage.setItem('token', res.token)
-        // this._router.navigate(['Dashboard'])
+        this._router.navigate(['Dashboard'])
         console.log(res);
-        console.log(this.loginUserData);
+        console.log(this.loginUserData.email);
+        console.log(this.loginUserData.password);
       },
       err => console.log(err)
     )}
