@@ -1,13 +1,27 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { EventModel } from "src/app/model/events/events.model";
-import { Friend } from "src/app/model/users/users.model";
+import { User } from "src/app/model/users/users.model";
 import { from } from "rxjs";
 
 @Injectable({
   providedIn: "root"
 })
 export class DataService {
+ tester = {
+    id: 500,
+    email: "kuku",
+    username: "gkugkg",
+    password: "jgjkg",
+    reportedNum: 0,
+    region: "Tampa",
+    category: "Sports",
+    favEvents: [],
+    friends: [],
+    admin: false,
+    banned: false
+  };
+
   baseUrl: string = "http://3.16.216.95:8085/cue";
 
   constructor(private http: HttpClient) {}
@@ -16,18 +30,34 @@ export class DataService {
     return this.http.get<EventModel>(`${this.baseUrl}/api`).toPromise();
   }
 
+  get_SearchAllEvents(keyword: string, searchword: string): Promise<EventModel> {
+    console.log(`${this.baseUrl}/api?`+keyword+`=`+searchword);
+    return this.http.get<EventModel>(`${this.baseUrl}/api?`+keyword+`=`+searchword).toPromise();
+  }
+
+
+  
+  get_AllUsersEvents(): Promise<EventModel> {
+    return this.http.get<EventModel>(`${this.baseUrl}/api?category=${this.tester.category}&city=${this.tester.region}`).toPromise();
+  }
+
+  get_AllSavedUsersEvents(): Promise<EventModel> {
+    return this.http.get<EventModel>(`${this.baseUrl}/api`).toPromise();
+  }
+
+
   getAllUsers() {
-    return this.http.get<Friend[]>(`${this.baseUrl}/users/all`);
+    return this.http.get<User[]>(`${this.baseUrl}/users/all`);
   }
   getUserById(id: number) {
     return this.http.get(`${this.baseUrl}/user/` + id);
   }
 
-  register(user: Friend) {
+  register(user: User) {
     return this.http.post(`${this.baseUrl}/user/`, user);
   }
 
-  update(user: Friend) {
+  update(user: User) {
     return this.http.put(`${this.baseUrl}/user/` + user.id, user);
   }
 

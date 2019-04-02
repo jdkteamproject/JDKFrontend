@@ -63,10 +63,14 @@
         <div class="card">
           <img src="../../../assets/Images/logo.jpg" alt="Avatar" style="width:100%">
           <div class="container">
-            <h4 style="text-align: center"><b>Events</b></h4>
-            <form class="text-left search" method="GET">
-              <input name="q" type="text" placeholder="Search..">
-            </form>
+              <h4 style="text-align: center"><b>Events</b></h4>
+              <select id="Key-select" [(ngModel)]="selectedKeyword">
+                  <option *ngFor="let keyword of keywords">
+                      {{keyword.name}}
+                   </option>
+              </select>
+              <input [(ngModel)] ="searchWord" name="q" type="text" placeholder="Search..">
+            <button (click)="getEvents()">Search</button>
           </div> 
         </div>
       </div>
