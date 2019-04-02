@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
+import { User } from '../../model/users/users.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,10 +9,30 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private dataService: DataService) {}
+  constructor(
+    private dataService: DataService) {}
 
+  currentUserId: number;
+  currentUser: User = {
+    id: null,
+    email: '',
+    username: '',
+    password: '',
+    reportedNum: null,
+    region: '',
+    category: '',
+    favEvents: [],
+    notifications: [],
+    admin: false,
+    banned: false
+  }
+  
   ngOnInit() {
     this.getEvents();
+    this.currentUserId = +window.localStorage.getItem('userId');
+    this.dataService.getUserById(this.currentUserId).then((res)=>{
+    this.currentUser = res;
+    }).catch((e)=>console.log(e))
   }
 
   events: Object[] = [];

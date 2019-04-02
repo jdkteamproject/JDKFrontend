@@ -23,7 +23,7 @@ export class DataService {
     "password": "123",
     "reportedNum": 0,
     "region": "New York",
-    "category": null,
+    "category": 'sports',
     "favEvents": [],
     "notifications": [
     {

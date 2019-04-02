@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
+import { User } from '../../model/users/users.model';
 
 @Component({
   selector: 'app-personal-profile',
@@ -7,23 +9,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonalProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private dataService: DataService) { }
 
-  ngOnInit() {
+    currentUserId: number;
+    currentUser: User = {
+    id: null,
+    email: '',
+    username: '',
+    password: '',
+    reportedNum: null,
+    region: '',
+    category: '',
+    favEvents: [],
+    notifications: [],
+    admin: false,
+    banned: false
   }
 
-  // declare var modal: string = document.getElementById('profileModal');
-  // var btn = document.getElementById("seeProfile");
-  // var span = document.getElementsByClassName("close")[0];
-  // btn.onclick = function() {
-  //   modal.style.display = "block";
-  // }
-  // span.onclick = function() {
-  //   modal.style.display = "none";
-  // }
-  // window.onclick = function(event) {
-  //   if (event.target == modal) {
-  //     modal.style.display = "none";
-  //   }
-  // }
+  ngOnInit() {
+    this.getEvents();
+    this.currentUserId = +window.localStorage.getItem('userId');
+    this.dataService.getUserById(this.currentUserId).then((res)=>{
+    this.currentUser = res;
+    }).catch((e)=>console.log(e))
+  }
+  
+  events: Object[] = [];
+
+  getEvents(){
+    this.dataService.get_AllUsersEvents().then((res)=>{
+      const data = res;
+      console.log(data._embedded);
+      this.events = data._embedded.events;
+
+    })
+
+    .catch((e)=>console.log(e));
+  }
+
 }
