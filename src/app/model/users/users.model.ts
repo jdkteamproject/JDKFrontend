@@ -8,6 +8,7 @@ export interface User {
     category: string;
     favEvents: any[];
     friends: any[];
+    notifications: any[];
     admin: boolean;
     banned: boolean;
 }

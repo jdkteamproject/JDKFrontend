@@ -20,16 +20,16 @@
                             <hr>
                             <form class="form-signin">
                                 <div class="form-label-group">
-                                    <input type="text" style="text-align: center" id="userEmail" [(ngModel)]="email" name="email" class="form-control" placeholder="email" required autofocus>
+                                    <input type="text" style="text-align: center" id="userEmail" #email name="email" class="form-control" placeholder="email" required autofocus>
                                     <label for="userEmail" style="text-align: center">Email</label>
                                 </div>
                                 <div class="form-label-group">
-                                    <input type="password" style="text-align: center" id="userPassword" [(ngModel)]="password" name="password" class="form-control" placeholder="password" required autofocus>
+                                    <input type="password" style="text-align: center" id="userPassword" #password name="password" class="form-control" placeholder="password" required autofocus>
                                     <label for="userPassword" style="text-align: center">Password</label>
                                 </div>
                                 <hr class="my-4">
                                 <button class="btn btn-lg btn-secondary btn-block text-uppercase"
-                                    type="button" (click)="loginUser()">Login</button>
+                                    type="button" (click)="loginUser(email.value, password.value)">Login</button>
                                 <button class="btn btn-lg btn-secondary btn-block text-uppercase" routerLink="/Register"
                                     type="button">Register</button>
                                 <hr class="my-4">

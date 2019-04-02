@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { EventModel } from "src/app/model/events/events.model";
 import { User } from "src/app/model/users/users.model";
-import { from } from "rxjs";
+import { from, Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -35,8 +35,6 @@ export class DataService {
     return this.http.get<EventModel>(`${this.baseUrl}/api?`+keyword+`=`+searchword).toPromise();
   }
 
-
-  
   get_AllUsersEvents(): Promise<EventModel> {
     return this.http.get<EventModel>(`${this.baseUrl}/api?category=${this.tester.category}&city=${this.tester.region}`).toPromise();
   }
@@ -49,8 +47,18 @@ export class DataService {
   getAllUsers() {
     return this.http.get<User[]>(`${this.baseUrl}/users/all`);
   }
+
+  getUserId(email: string, password: string){
+    let idNum = JSON.stringify(this.http.get(`${this.baseUrl}/login?email=${email}&password=${password}`));
+    return idNum;
+  }
+
+  getId(email: string, password: string): Observable<number>{
+    return this.http.get<number>(`${this.baseUrl}/login?email=${email}&password=${password}`);
+  }
+
   getUserById(id: number) {
-    return this.http.get(`${this.baseUrl}/user/` + id);
+    return this.http.get<User>(`${this.baseUrl}/user/` + id);
   }
 
   register(user: User) {
