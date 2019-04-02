@@ -60,218 +60,30 @@
   </div>
 
   <!--Wall with Post -->
-  <div class="content-posts active" id="feed">
+
+  <div class="content-posts active" id="eventPosts">
     <div class="primary-content">
-      <div id="posts-container" class="container-fluid container-posts">
-        <div class="card-post">
+        <div id="posts-container" class="container-fluid container-posts">
           <div class="row">
-            <div class="col-xs-3 col-sm-2">
-              <!-- feed info-->
-            </div>
-            <div class="col-xs-9 col-sm-10 info-user">
-              <!-- feed info-->
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-8 col-sm-offset-2 data-post">
-              <p></p>
-              <div class="reaction">
-                <!-- &#x2764; 156 &#x1F603; 54 -->
-              </div>
-              <div class="comments">
-                <div class="more-comments">View more comments</div>
-                <ul>
-                  <li><b>User1</b> Lorem Ipsum Dolor si amet</li>
-                  <li><b>User2</b> Lorem Ipsum Dolor si amet &#x1F602;</li>
-                </ul>
-                <form>
-                  <input type="text" class="form-control" placeholder="Add a comment">
-                </form>
-              </div>
+            <div class="card-post" *ngFor="let event of events" >
+                <div class="row">
+                    <div class=" col-sm-8 col-sm-offset-2 data-post">
+                      <p>{{event.name}}</p>
+                      <p>{{event.dates.start.localDate}}</p>
+                      <img src="{{event.images[0].url}}">
+                      <div class="comments">
+                        <p>{{event.info}}</p>
+                        <p>{{event.url}}</p>
+                      </div>
+                    </div>
+                </div>
             </div>
           </div>
         </div>
-
-        <div class="card-post">
-          <div class="row">
-            <div class="col-xs-3 col-sm-2">
-              <a href="user-profile.html" title="User Profile">
-                <img src="https://placehold.it/300x300" alt="User name" class="img-circle img-user">
-              </a>
-            </div>
-            <div class="col-xs-9 col-sm-10 info-user">
-              <h3><a href="user-profile.html" title="User Profile">User Name</a></h3>
-              <p><i>2h</i></p>
-            </div>
-          </div>
-          <div class="row">
-            <div class=" col-sm-8 col-sm-offset-2 data-post">
-              <p>Lorem Ipsum Dolor si amet</p>
-              <img src="https://placehold.it/600x400" alt="image post" class="img-post">
-              <div class="reaction">
-                &#x2764; 1234 &#x1F603; 54
-              </div>
-              <div class="comments">
-                <div class="more-comments">View more comments</div>
-                <ul>
-                  <li><b>User1</b> Lorem Ipsum Dolor si amet</li>
-                  <li><b>User2</b> Lorem Ipsum Dolor si amet &#x1F602;</li>
-                </ul>
-                <form>
-                  <input type="text" class="form-control" placeholder="Add a comment">
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-post">
-          <div class="row">
-            <div class="col-xs-3 col-sm-2">
-              <a href="personal-profile.html" title="User Profile">
-                <img src="https://placehold.it/300x300" alt="User name" class="img-circle img-user">
-              </a>
-            </div>
-            <div class="col-xs-9 col-sm-10 info-user">
-              <h3><a href="personal-profile.html" title="User Profile">My User</a></h3>
-              <p><i>2h</i></p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-8 col-sm-offset-2 data-post">
-              <p>Lorem Ipsum Dolor si amet</p>
-              <img src="https://placehold.it/600x400" alt="video post" class="img-post">
-              <div class="reaction">
-                &#x2764; 1234 &#x1F603; 54
-              </div>
-              <div class="comments">
-                <div class="more-comments">View more comments</div>
-                <ul>
-                  <li><b>User1</b> Lorem Ipsum Dolor si amet</li>
-                  <li><b>User2</b> Lorem Ipsum Dolor si amet &#x1F602;</li>
-                </ul>
-                <form>
-                  <input type="text" class="form-control" placeholder="Add a comment">
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
-    <!--Close #posts-container-->
-    <div class="sidebar-right hidden-xs hidden-sm">
-      <div class="card-post">
-        <div class="row">
-          <div class="col-sm-12">
-            <p><i>Suggested post</i></p>
-            <h3><a href="#" title="Company">Company</a></h3>
-            <img src="https://placehold.it/300x300" alt="Suggested post">
-          </div>
-        </div>
-      </div>
-      <div class="card-post">
-        <div class="row">
-          <div class="col-sm-12">
-            <h3>Popular Users</h3>
-          </div>
-          <div class="col-xs-3 popular-img">
-            <a href="#">
-              <img src="https://placehold.it/300x300" alt="User name" class="img-circle">
-            </a>
-          </div>
-          <div class="col-xs-3 popular-img">
-            <a href="#">
-              <img src="https://placehold.it/300x300" alt="User name" class="img-circle">
-            </a>
-          </div>
-          <div class="col-xs-3 popular-img">
-            <a href="#">
-              <img src="https://placehold.it/300x300" alt="User name" class="img-circle">
-            </a>
-          </div>
-          <div class="col-xs-3 popular-img">
-            <a href="#">
-              <img src="https://placehold.it/300x300" alt="User name" class="img-circle">
-            </a>
-          </div>
-          <div class="col-xs-3 popular-img">
-            <a href="#">
-              <img src="https://placehold.it/300x300" alt="User name" class="img-circle">
-            </a>
-          </div>
-          <div class="col-xs-3 popular-img">
-            <a href="#">
-              <img src="https://placehold.it/300x300" alt="User name" class="img-circle">
-            </a>
-          </div>
-          <div class="col-xs-3 popular-img">
-            <a href="#">
-              <img src="https://placehold.it/300x300" alt="User name" class="img-circle">
-            </a>
-          </div>
-          <div class="col-xs-3 popular-img">
-            <a href="#">
-              <img src="https://placehold.it/300x300" alt="User name" class="img-circle">
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="card-post">
-        <div class="row">
-          <div class="col-sm-12">
-            <h3>Popular Photos</h3>
-          </div>
-          <div class="col-xs-4 popular-img">
-            <a href="#">
-              <img src="https://placehold.it/300x300" alt="User name">
-            </a>
-          </div>
-          <div class="col-xs-4 popular-img">
-            <a href="#">
-              <img src="https://placehold.it/300x300" alt="User name">
-            </a>
-          </div>
-          <div class="col-xs-4 popular-img">
-            <a href="#">
-              <img src="https://placehold.it/300x300" alt="User name">
-            </a>
-          </div>
-          <div class="col-xs-4 popular-img">
-            <a href="#">
-              <img src="https://placehold.it/300x300" alt="User name">
-            </a>
-          </div>
-          <div class="col-xs-4 popular-img">
-            <a href="#">
-              <img src="https://placehold.it/300x300" alt="User name">
-            </a>
-          </div>
-          <div class="col-xs-4 popular-img">
-            <a href="#">
-              <img src="https://placehold.it/300x300" alt="User name">
-            </a>
-          </div>
-          <div class="col-xs-4 popular-img">
-            <a href="#">
-              <img src="https://placehold.it/300x300" alt="User name">
-            </a>
-          </div>
-          <div class="col-xs-4 popular-img">
-            <a href="#">
-              <img src="https://placehold.it/300x300" alt="User name">
-            </a>
-          </div>
-          <div class="col-xs-4 popular-img">
-            <a href="#">
-              <img src="https://placehold.it/300x300" alt="User name">
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
+
+      
 </body>
 
 </html>
