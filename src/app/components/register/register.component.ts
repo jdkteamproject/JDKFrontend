@@ -17,7 +17,6 @@ export class RegisterComponent implements OnInit {
     region: '',
     category: '',
     favEvents: [],
-    friends: [],
     notifications: [],
     admin: false,
     banned: false
