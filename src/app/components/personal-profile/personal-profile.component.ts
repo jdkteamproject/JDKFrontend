@@ -38,7 +38,7 @@ export class PersonalProfileComponent implements OnInit {
   events: Object[] = [];
 
   getEvents(){
-    this.dataService.get_AllUsersEvents().then((res)=>{
+    this.dataService.get_AllUsersEvents(this.currentUser.category, this.currentUser.region).then((res)=>{
       const data = res;
       console.log(data._embedded);
       this.events = data._embedded.events;
