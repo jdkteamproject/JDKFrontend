@@ -26,7 +26,8 @@ export class LoginComponent implements OnInit {
 
   User: loginUser = {
     email: '',
-    password: ''
+    password: '',
+    admin: false
   }
 
   loginUser(email: string, password: string) {

@@ -4,6 +4,7 @@ import { User } from '../../model/users/users.model';
 import { userEvent } from 'src/app/model/userEvent/userEvent.model';
 import { EventModel } from 'src/app/model/events/events.model';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-personal-profile', 
@@ -12,12 +13,14 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class PersonalProfileComponent implements OnInit {
 
-
-  activeModal: boolean = false;
+ public show:boolean = false;
+ public buttonName:any = 'Edit Profile';
+ 
 
   constructor(
     private dataService: DataService,
-    private authService: AuthenticationService) { }
+    private authService: AuthenticationService,
+    private router: Router) { }
 
     currentUserId: number;
 
@@ -44,10 +47,18 @@ export class PersonalProfileComponent implements OnInit {
     this.currentUserId = +window.localStorage.getItem('userId');
     this.dataService.getUserById(this.currentUserId).then((res)=>{
       this.currentUser = res;
-      console.log("this is on init");
-      console.log(res);
       this.getSavedEvents();
     }).catch((e)=>console.log(e))
+  }
+
+  toggle() {
+    this.show = !this.show;
+ 
+    // CHANGE THE NAME OF THE BUTTON.
+    if(this.show)
+      this.buttonName = "View Profile";
+    else
+      this.buttonName = "Edit Profile";
   }
   
   events: EventModel[] = [];
@@ -72,12 +83,7 @@ export class PersonalProfileComponent implements OnInit {
         this.userEvents.splice(i);
       }
     }
-
-  
     this.currentUser.favEvents = this.userEvents;
-    console.log("after delete");
-    console.log(this.currentUser);
-
     this.dataService.update(this.currentUser).then((res)=>{
       console.log(res);
     })
@@ -129,13 +135,16 @@ export class PersonalProfileComponent implements OnInit {
     console.log(this.currentUser);
     } else {
       console.log("Password don't match!");
+    } 
+    this.toggle();
+  }
+
+  verifyAdmin(){
+    if(this.currentUser.admin == true){
+      return true;
+    } else {
+      return false;
     }
-    
-    
-
-    
-
-    
   }
 
   toTop() {

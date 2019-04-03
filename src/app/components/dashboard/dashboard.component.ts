@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit {
     private authService: AuthenticationService) {}
 
   currentUserId: number;
+
   currentUser: User = {
     id: null,
     email: '',
@@ -48,8 +49,15 @@ export class DashboardComponent implements OnInit {
       this.events = data._embedded.events;
 
     })
-
     .catch((e)=>console.log(e));
+  }
+
+  verifyAdmin(){
+    if(this.currentUser.admin == true){
+      return true;
+    } else {
+      return false;
+    }
   }
 
   logout(){

@@ -74,11 +74,20 @@ export class EventsComponent implements OnInit {
     console.log("made it here");
     console.log(this.currentUser.id);
     this.event.e_sid = e_id;
+    console.log("This is the event id of saved event");
     console.log(this.event);
     this.dataService.post_SaveEvent(this.currentUser.id, this.event).then((res)=>{
       console.log(res);
     })
     .catch((e)=>console.log(e));
+  }
+
+  verifyAdmin(){
+    if(this.currentUser.admin == true){
+      return true;
+    } else {
+      return false;
+    }
   }
 
   toTop() {
