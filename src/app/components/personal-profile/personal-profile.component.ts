@@ -3,11 +3,16 @@ import { DataService } from 'src/app/services/data.service';
 import { User } from '../../model/users/users.model';
 
 @Component({
-  selector: 'app-personal-profile',
+  selector: 'app-personal-profile', 
   templateUrl: './personal-profile.component.html',
   styleUrls: ['./personal-profile.component.css']
 })
 export class PersonalProfileComponent implements OnInit {
+
+
+  activeModal: boolean = false;
+
+
 
   constructor(
     private dataService: DataService) { }
@@ -28,10 +33,10 @@ export class PersonalProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getEvents();
     this.currentUserId = +window.localStorage.getItem('userId');
     this.dataService.getUserById(this.currentUserId).then((res)=>{
     this.currentUser = res;
+    this.getEvents();
     }).catch((e)=>console.log(e))
   }
   
@@ -46,6 +51,12 @@ export class PersonalProfileComponent implements OnInit {
     })
 
     .catch((e)=>console.log(e));
+  }
+
+  
+  toTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   }
 
 }
