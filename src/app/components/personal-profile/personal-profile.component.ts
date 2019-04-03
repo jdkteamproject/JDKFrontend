@@ -20,6 +20,7 @@ export class PersonalProfileComponent implements OnInit {
     private authService: AuthenticationService) { }
 
     currentUserId: number;
+
     currentUser: User = {
     id: null,
     email: '',
@@ -60,9 +61,7 @@ export class PersonalProfileComponent implements OnInit {
       for(var i = 0; i < data.length; i++){
         this.events[i] = data[i];
       }
-
     })
-
     .catch((e)=>console.log(e));
   }
 
@@ -73,14 +72,70 @@ export class PersonalProfileComponent implements OnInit {
         this.userEvents.splice(i);
       }
     }
+
   
     this.currentUser.favEvents = this.userEvents;
     console.log("after delete");
     console.log(this.currentUser);
+
     this.dataService.update(this.currentUser).then((res)=>{
       console.log(res);
     })
     .catch((e)=>console.log(e));
+  }
+
+  updateProfile(email: string, username: string, preference: string, city: string, pass1: string, pass2: string){
+    this.currentUser.id = this.currentUser.id;
+    if(email != ''){
+      this.currentUser.email = email;
+    } else {
+      this.currentUser.email = this.currentUser.email;
+    }
+
+    if(username != ''){
+      this.currentUser.username = username;
+    } else {
+      this.currentUser.username = this.currentUser.username;
+    }
+    
+    if(preference != ''){
+      this.currentUser.category = preference;
+    } else {
+      this.currentUser.category = this.currentUser.category;
+    }
+
+    if(city != ''){
+      this.currentUser.region = city;
+    } else {
+      this.currentUser.region = this.currentUser.region;
+    }
+ 
+    if(pass1 == pass2){
+      if(pass1 != ''){
+        this.currentUser.password = pass1;
+      } else {
+        this.currentUser.password = this.currentUser.password;
+      }
+
+    this.currentUser.reportedNum = this.currentUser.reportedNum;
+    this.currentUser.favEvents = this.currentUser.favEvents;
+    this.currentUser.notifications = this.currentUser.notifications;
+    this.currentUser.admin = this.currentUser.admin;
+    this.currentUser.banned = this.currentUser.banned;
+
+    this.dataService.update(this.currentUser).then((res) => {
+      console.log("Updating user " + this.currentUser.username + ": " + res);
+    }).catch((e) => {console.log(e)})
+    console.log(this.currentUser);
+    } else {
+      console.log("Password don't match!");
+    }
+    
+    
+
+    
+
+    
   }
 
   toTop() {
