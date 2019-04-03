@@ -36,6 +36,8 @@ export class DataService {
     };
 
   baseUrl: string = "http://3.16.216.95:8085/cue";
+  citiesUrl: string = "http://3.16.216.95:8085/cue/info/cities";
+
 
   constructor(private http: HttpClient) {}
 
@@ -102,6 +104,14 @@ export class DataService {
     return this.http.get<User>(`${this.baseUrl}/users/` + id).toPromise();
 
   }
+
+  getAllCities(): Promise<any>{
+    return this.http.get<any>(`${this.baseUrl}/info/cities`).toPromise();
+  }
+
+  // getAllCategories(): Promise<any>{
+  //   return this.http.get<any>(`${this.baseUrl}`).toPromise();
+  // }
 
   register(user: User) {
     return this.http.post(`${this.baseUrl}/users/`, user);
