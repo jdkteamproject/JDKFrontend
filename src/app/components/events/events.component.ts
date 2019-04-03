@@ -49,7 +49,11 @@ export class EventsComponent implements OnInit {
   }
 
   ngOnInit() {
-   
+    this.currentUserId = +window.localStorage.getItem('userId');
+    this.dataService.getUserById(this.currentUserId).then((res)=>{
+      this.currentUser = res;
+      console.log(this.currentUser);
+    }).catch((e)=>console.log(e))
   }
 
 
@@ -67,6 +71,8 @@ export class EventsComponent implements OnInit {
   }
 
   saveEvent(e_id: string){
+    console.log("made it here");
+    console.log(this.currentUser.id);
     this.event.e_sid = e_id;
     console.log(this.event);
     this.dataService.post_SaveEvent(this.currentUser.id, this.event).then((res)=>{
