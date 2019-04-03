@@ -44,6 +44,8 @@ export class PersonalProfileComponent implements OnInit {
     this.currentUserId = +window.localStorage.getItem('userId');
     this.dataService.getUserById(this.currentUserId).then((res)=>{
       this.currentUser = res;
+      console.log("this is on init");
+      console.log(res);
       this.getSavedEvents();
     }).catch((e)=>console.log(e))
   }
@@ -70,7 +72,12 @@ export class PersonalProfileComponent implements OnInit {
         this.userEvents.splice(i);
       }
     }
+
+  
     this.currentUser.favEvents = this.userEvents;
+    console.log("after delete");
+    console.log(this.currentUser);
+
     this.dataService.update(this.currentUser).then((res)=>{
       console.log(res);
     })
