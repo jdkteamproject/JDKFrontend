@@ -106,9 +106,13 @@ export class DataService {
   }
 
 
+  getAllCategories(): Promise<any>{
+    return this.http.get<any>(`${this.baseUrl}/info/categories`).toPromise();
+  }
 
-  register(user: User) {
-    return this.http.post(`${this.baseUrl}/users/`, user);
+
+  register(user: User): Promise<boolean>{
+    return this.http.post<boolean>(`${this.baseUrl}/users/`, user).toPromise();
   }
 
   update(user: User): Promise<boolean>{

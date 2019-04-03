@@ -35,17 +35,19 @@
                                     <label for="inputPassword2" style="text-align: center"> Confirm Password</label>
                                 </div>
                                 <div class="form-label-group" style="text-align: center">
-                                    <select id="selectRegion">
+                                    <span id="regionLabel">Region: </span>
+                                    <select id="selectRegion" #region>
                                         <option *ngFor="let city of cities">{{ city }}</option>
                                     </select>
                                 </div>
                                 <div class="form-label-group" style="text-align: center">
-                                    <select id="selectCategory">
-                                       <!-- <option *ngFor="let category of categories">{{ category }}</option> -->
+                                    <span id="categoryLabel">Category: </span>
+                                    <select id="selectCategory" #preference>
+                                       <option *ngFor="let category of categories">{{ category }}</option>
                                     </select>
                                 </div>
                                 <hr class="my-4">
-                                <button class="btn btn-lg btn-secondary btn-block text-uppercase" type="button" (click)="registerUser(username.value, email.value, password1.value, region.value, category.value)">Register</button>
+                                <button class="btn btn-lg btn-secondary btn-block text-uppercase" type="button" (click)="registerUser(email.value, username.value, password1.value, password2.value, region.value, preference.value)">Register</button>
                                 <hr class="my-4">
                             </form>
                         </div>

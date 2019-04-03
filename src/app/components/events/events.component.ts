@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { User } from 'src/app/model/users/users.model';
 import { userEvent } from 'src/app/model/userEvent/userEvent.model';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 
 @Component({
@@ -12,7 +13,9 @@ import { userEvent } from 'src/app/model/userEvent/userEvent.model';
 })
 export class EventsComponent implements OnInit {
 
-  constructor(private dataService: DataService) {}
+  constructor(
+    private dataService: DataService,
+    private authService: AuthenticationService) {}
 
   selectedKeyword: string = "";
   printedKeyword: string;
@@ -72,10 +75,12 @@ export class EventsComponent implements OnInit {
     .catch((e)=>console.log(e));
   }
 
-
-
   toTop() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+  }
+
+  logout(){
+    this.authService.logoutUser();
   }
 }

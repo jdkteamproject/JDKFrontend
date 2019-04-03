@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { User } from '../../model/users/users.model';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +11,8 @@ import { User } from '../../model/users/users.model';
 export class DashboardComponent implements OnInit {
 
   constructor(
-    private dataService: DataService) {}
+    private dataService: DataService,
+    private authService: AuthenticationService) {}
 
   currentUserId: number;
   currentUser: User = {
@@ -48,6 +50,10 @@ export class DashboardComponent implements OnInit {
     })
 
     .catch((e)=>console.log(e));
+  }
+
+  logout(){
+    this.authService.logoutUser();
   }
 
 }
