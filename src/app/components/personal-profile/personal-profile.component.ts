@@ -12,8 +12,6 @@ export class PersonalProfileComponent implements OnInit {
 
   activeModal: boolean = false;
 
-
-
   constructor(
     private dataService: DataService) { }
 
