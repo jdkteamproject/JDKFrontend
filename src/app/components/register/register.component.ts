@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from "../../model/users/users.model";
+import { userEvent } from 'src/app/model/userEvent/userEvent.model';
+import { userNotification } from 'src/app/model/userNotification/userNotification.model';
 
 @Component({
   selector: 'app-register',
@@ -21,6 +23,20 @@ export class RegisterComponent implements OnInit {
     admin: false,
     banned: false
   }
+
+  registerUser(
+    email: string, 
+    username: string, 
+    password: string, 
+    reportedNum: number, 
+    region: string,
+    category: string,
+    favEvents: userEvent[],
+    notifications: userNotification[],
+    admin: false,
+    banned: false){
+
+     }
 
   constructor() { }
 

@@ -18,6 +18,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { ModalComponent } from './components/modal/modal.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,12 +37,7 @@ import { ModalComponent } from './components/modal/modal.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [DataService, AuthenticationService, AuthenticationGuard,
-  {
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptorService,
-    multi: true
-  }],
+  providers: [DataService, AuthenticationService, AuthenticationGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

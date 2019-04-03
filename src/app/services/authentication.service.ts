@@ -17,36 +17,22 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient, private _router: Router) { }
 
-  registerUser(user){
+  registerUser(user) {
     return this.http.post<any>(this._registerUrl, user)
   }
 
-  loginUser(email: string, password: string){
-    this.loginId=JSON.stringify({"email": email, "password": password});
+  loginUser(email: string, password: string) {
+    this.loginId = JSON.stringify({ "email": email, "password": password });
     return this.http.post<number>(this._loginUrl, this.loginId, HttpOptions)
-    
+
   }
 
-  logoutUser(){
-    localStorage.removeItem('currentuser');
+  logoutUser() {
+    localStorage;
     this._router.navigate(['/'])
   }
 
-  getToken() {
-    return localStorage.getItem('token')
-  }
-
   loggedIn() {
-    return localStorage.getItem('token')
-  }
-
-  messages: string[] = [];
-
-  add(message: string){
-    this.messages.push(message);
-  }
-
-  clear(){
-    this.messages = [];
+    return localStorage.getItem('userId')
   }
 }
