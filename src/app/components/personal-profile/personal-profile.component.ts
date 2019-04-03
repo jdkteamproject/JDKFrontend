@@ -40,12 +40,13 @@ export class PersonalProfileComponent implements OnInit {
   ngOnInit() {
     this.currentUserId = +window.localStorage.getItem('userId');
     this.dataService.getUserById(this.currentUserId).then((res)=>{
-    this.currentUser = res;
-    this.getSavedEvents();
+      this.currentUser = res;
+      this.getSavedEvents();
     }).catch((e)=>console.log(e))
   }
   
   events: EventModel[] = [];
+  userEvents: userEvent[] = [];
 
   getSavedEvents(){
     this.dataService.get_UserSavedEvents(this.currentUser.id).then((res)=>{
@@ -62,9 +63,16 @@ export class PersonalProfileComponent implements OnInit {
   }
 
   deleteEvent(e_id: string){
-    this.event.e_sid = e_id;
-    console.log(this.event);
-    this.dataService.delete_SaveEvent(this.currentUser.id).then((res)=>{
+    this.userEvents = this.currentUser.favEvents;
+    for(var i = 0; i < this.userEvents.length; i++){
+      if(this.userEvents[i].e_sid == e_id){
+        this.userEvents.splice(i);
+      }
+    }
+
+    this.currentUser.favEvents = this.userEvents;
+    
+    this.dataService.update(this.currentUser).then((res)=>{
       console.log(res);
     })
     .catch((e)=>console.log(e));

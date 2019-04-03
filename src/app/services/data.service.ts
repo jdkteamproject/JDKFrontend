@@ -68,10 +68,6 @@ export class DataService {
    return this.http.post<boolean>(`${this.baseUrl}/users/`+Id+"/events", event).toPromise();
   }
 
-  delete_SaveEvent(Id: number): Promise<boolean>{ 
-    return this.http.delete<boolean>(`${this.baseUrl}/users/`+Id+"/events").toPromise();
-   }
-
 
   get_UserSavedEvents(Id: number): Promise<EventModel[]>{
     return this.http.get<EventModel[]>(`${this.baseUrl}/users/`+Id+"/events").toPromise();
@@ -109,19 +105,19 @@ export class DataService {
     return this.http.get<any>(`${this.baseUrl}/info/cities`).toPromise();
   }
 
-  // getAllCategories(): Promise<any>{
-  //   return this.http.get<any>(`${this.baseUrl}`).toPromise();
-  // }
+
 
   register(user: User) {
     return this.http.post(`${this.baseUrl}/users/`, user);
   }
 
-  update(user: User) {
-    return this.http.put(`${this.baseUrl}/users/` + user.id, user);
+  update(user: User): Promise<boolean>{
+    return this.http.put<boolean>(`${this.baseUrl}/users/` + user.id, user).toPromise();
   }
 
   delete(id: number) {
     return this.http.delete(`${this.baseUrl}/users/` + id);
   }
+
+
 }
