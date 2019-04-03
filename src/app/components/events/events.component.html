@@ -25,8 +25,7 @@
     <header class="text-right" id="pagetop">   
         <div class="second-icon menu-icon">
         <span
-          ><a routerLink="" title="Wall"
-            ><span class="hidden-xs hidden-sm">Logout</span>
+          ><a routerLink (click)="logout()" title="Logout"><span class="hidden-xs hidden-sm">Logout</span>
             <i class="fa fa-database" aria-hidden="true"></i
           ></a>
         </span>
@@ -34,8 +33,7 @@
       </div>
       <div class="second-icon menu-icon">
         <span
-          ><a routerLink="/Profile" title="Wall"
-            ><span class="hidden-xs hidden-sm">Profile</span>
+          ><a routerLink="/Profile" title="Wall"><span class="hidden-xs hidden-sm">Profile</span>
             <i class="fa fa-database" aria-hidden="true"></i
           ></a>
         </span>

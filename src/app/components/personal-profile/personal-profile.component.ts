@@ -3,6 +3,7 @@ import { DataService } from 'src/app/services/data.service';
 import { User } from '../../model/users/users.model';
 import { userEvent } from 'src/app/model/userEvent/userEvent.model';
 import { EventModel } from 'src/app/model/events/events.model';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-personal-profile', 
@@ -15,7 +16,8 @@ export class PersonalProfileComponent implements OnInit {
   activeModal: boolean = false;
 
   constructor(
-    private dataService: DataService) { }
+    private dataService: DataService,
+    private authService: AuthenticationService) { }
 
     currentUserId: number;
     currentUser: User = {
@@ -70,10 +72,13 @@ export class PersonalProfileComponent implements OnInit {
     .catch((e)=>console.log(e));
   }
 
-  
   toTop() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+  }
+
+  logout(){
+    this.authService.logoutUser();
   }
 
 }
