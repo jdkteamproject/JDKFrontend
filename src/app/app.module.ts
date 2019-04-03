@@ -14,6 +14,9 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
 import { PublicProfileComponent } from './components/public-profile/public-profile.component';
 import { AuthenticationService } from './services/authentication.service';
 import { AuthenticationGuard } from './services/authentication.guard';
+import { TokenInterceptorService } from './services/token-interceptor.service';
+import { ModalComponent } from './components/modal/modal.component';
+
 
 
 @NgModule({
@@ -25,7 +28,8 @@ import { AuthenticationGuard } from './services/authentication.guard';
     PersonalProfileComponent,
     EventsComponent,
     AdminPageComponent,
-    PublicProfileComponent
+    PublicProfileComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
