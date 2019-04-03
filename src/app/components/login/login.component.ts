@@ -4,10 +4,6 @@ import { Router } from '@angular/router';
 import { User } from "../../model/users/users.model";
 import { loginUser } from "../../model/users/loginUser.model";
 import { DataService } from "../../services/data.service";
-import { Observable, of } from 'rxjs';
-
-
-
 
 @Component({
   selector: 'app-login',
@@ -20,11 +16,7 @@ export class LoginComponent implements OnInit {
   currentUserId: number;
   currentUser: User;
 
-
-  private _baseUrl = "http://3.16.216.95:8085/cue/users/"
-
   constructor(
-    private _auth: AuthenticationService,
     private _router: Router,
     private _duser: DataService) {
   }

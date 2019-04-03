@@ -14,7 +14,6 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
 import { PublicProfileComponent } from './components/public-profile/public-profile.component';
 import { AuthenticationService } from './services/authentication.service';
 import { AuthenticationGuard } from './services/authentication.guard';
-import { TokenInterceptorService } from './services/token-interceptor.service';
 
 
 @NgModule({
@@ -34,12 +33,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [DataService, AuthenticationService, AuthenticationGuard,
-  {
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptorService,
-    multi: true
-  }],
+  providers: [DataService, AuthenticationService, AuthenticationGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
