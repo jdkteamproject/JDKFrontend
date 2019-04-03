@@ -29,9 +29,9 @@
             aria-hidden="true"></i></a>
       </span>
     </div>
-    <div class="second-icon menu-icon">
-      <span><a routerLink="/Users" title="Users"><span class="hidden-xs hidden-sm">Users</span> <i
-          class="fa fa-database" aria-hidden="true"></i></a>
+    <div class="second-icon menu-icon" *ngIf="verifyAdmin()">
+      <span><a routerLink="/Admin" title="Admin Page"><span class="hidden-xs hidden-sm">Administration</span> <i
+            class="fa fa-user" aria-hidden="true"></i></a>
       </span>
     </div>
     <div class="second-icon menu-icon">
@@ -49,7 +49,8 @@
   <div class="content-posts active" id="userProfileInfo">
     <div class="primary-content">
       <div id="posts-container" class="container-fluid container-posts">
-        <!-- Modal Start -->
+        <!-- Update Profile -->
+        <ng-container *ngIf="show">
         <div class="modal-header">
           <h4 class="modal-title">Edit Information</h4>
           <button type="button" class="close" aria-label="Close">
@@ -68,7 +69,7 @@
                 <input type="text" class="form-control" name="city" #city placeholder={{currentUser.region}} required/>
                 <label for="password1">Password</label>
                 <input type="text" class="form-control" name="pass1" #pass1 placeholder={{currentUser.password}} required/>
-                <label for="password2">Password</label>
+                <label for="password2">Confirm Password</label>
                 <input type="text" class="form-control" name="pass2" #pass2 placeholder={{currentUser.password}} required/>
               </div>
           </div>
@@ -76,18 +77,25 @@
             <button class="btn btn-success" type="button" (click)="updateProfile(email.value, username.value, preference.value, city.value, pass1.value, pass2.value)">Update</button>
           </div>
         </form>
+        </ng-container>
         <!-- Modal End -->
-          <h2 style="text-align: center">Personal Information</h2>
+          
           <div id="profile-info">
+            <div id="userInfo" *ngIf="!show">
+            <h2 style="text-align: center">Personal Information</h2>
             <p>Username: {{currentUser.username}}</p>
             <p>Category: {{currentUser.category}}</p>
             <p>City: {{currentUser.region}}</p>
+            </div>
+            <button class="btn btn-success" *ngIf="!show" type="button" (click)="toggle()" id="bt">
+              {{ buttonName }}
+            </button>
             <p>Saved Events: </p>
             <div class="list-group" title="Saved Events">
               <div class="row">
                 <div class="card-post" *ngFor="let event of events; let i = index" >
                     <div class="row">
-                        <div class=" col-sm-8 col-sm-offset-2 data-post">
+                        <div class=" col-sm-8 col-sm-offset-2 data-post" >
                             <p>{{event._embedded.events[0].name}}</p>
                             <p>{{event._embedded.events[0].dates.start.localDate}}</p>
                             <img src="{{event._embedded.events[0].images[0].url}}">
