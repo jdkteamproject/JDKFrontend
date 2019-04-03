@@ -16,24 +16,6 @@ import { userEvent } from '../model/userEvent/userEvent.model';
 })
 
 export class DataService {
-  tester: User = {
-    "id": 50,
-    "email": "shimjay1@gmail.com",
-    "username": "magikarp",
-    "password": "123",
-    "reportedNum": 0,
-    "region": "New York",
-    "category": 'sports',
-    "favEvents": [],
-    "notifications": [
-    {
-    "id": 50,
-    "message": "You've got mail!"
-    }
-    ],
-    "admin": false,
-    "banned": false
-    };
 
   baseUrl: string = "http://3.16.216.95:8085/cue";
   citiesUrl: string = "http://3.16.216.95:8085/cue/info/cities";
