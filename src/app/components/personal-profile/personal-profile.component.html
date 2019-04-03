@@ -88,19 +88,19 @@
             <p>Saved Events </p>
             <div class="list-group" title="Saved Events">
               <div class="row">
-                <div class="card-post" *ngFor="let event of events" >
+                <div class="card-post" *ngFor="let event of events; let i = index" >
                     <div class="row">
                         <div class=" col-sm-8 col-sm-offset-2 data-post">
-                            <p>{{event.name}}</p>
-                            <p>{{event.dates.start.localDate}}</p>
-                            <img src="{{event.images[0].url}}">
+                            <p>{{event._embedded.events[0].name}}</p>
+                            <p>{{event._embedded.events[0].dates.start.localDate}}</p>
+                            <img src="{{event._embedded.events[0].images[0].url}}">
                             <div class="comments">
-                              <p>{{event.info}}</p>
-                              <p>{{event.url}}</p>
-                              <p style="visibility:hidden; display:none;">{{event.id}}</p>
+                              <p>{{event._embedded.events[0].info}}</p>
+                              <p>{{event._embedded.events[0].url}}</p>
+                              <p style="visibility:hidden; display:none;">{{event._embedded.events[0].id}}</p>
                             </div>
                             <button (click)="toTop()" id="topBtn" title="Go to top">Top</button>
-                            <button (click)="saveEvent(event.id)" id="saveBtn" title="Delete Event">Delete Event</button>
+                            <button (click)="deleteEvent(event._embedded.events[0].id)" id="saveBtn" title="Delete Event">Delete Event</button>
                         </div>
                     </div>
                 </div>
