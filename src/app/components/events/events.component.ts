@@ -25,24 +25,20 @@ export class EventsComponent implements OnInit {
     { name: "city", value: 3}
   ]
 
-  tester: User = {
-    "id": 50,
-    "email": "shimjay1@gmail.com",
-    "username": "magikarp",
-    "password": "123",
-    "reportedNum": 0,
-    "region": "New York",
-    "category": null,
-    "favEvents": [],
-    "notifications": [
-    {
-    "id": 50,
-    "message": "You've got mail!"
-    }
-    ],
-    "admin": false,
-    "banned": false
-    };
+  currentUserId: number;
+  currentUser: User = {
+  id: null,
+  email: '',
+  username: '',
+  password: '',
+  reportedNum: null,
+  region: '',
+  category: '',
+  favEvents: [],
+  notifications: [],
+  admin: false,
+  banned: false
+}
 
   event: userEvent = {
     "e_id": Math.floor(Math.random()*100),
@@ -70,7 +66,7 @@ export class EventsComponent implements OnInit {
   saveEvent(e_id: string){
     this.event.e_sid = e_id;
     console.log(this.event);
-    this.dataService.post_SaveEvent(50, this.event).then((res)=>{
+    this.dataService.post_SaveEvent(this.currentUser.id, this.event).then((res)=>{
       console.log(res);
     })
     .catch((e)=>console.log(e));

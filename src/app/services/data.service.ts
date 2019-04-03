@@ -60,20 +60,20 @@ export class DataService {
     return this.http.get<EventModel>(url).toPromise();
   }
 
-  // post_SaveEvent(eventId: string, event: EventModel): Observable<EventModel> {
-    // return this.http.post(`${this.baseUrl}/`+eventId+`events`, event);
-  //  }
+ 
 
   post_SaveEvent(Id: number, event: userEvent): Promise<boolean>{ 
    return this.http.post<boolean>(`${this.baseUrl}/users/`+Id+"/events", event).toPromise();
   }
 
-  // post_SaveEvent()
+  delete_SaveEvent(Id: number): Promise<boolean>{ 
+    return this.http.delete<boolean>(`${this.baseUrl}/users/`+Id+"/events").toPromise();
+   }
 
-  
 
-  // post_SaveEvent()
-    
+  get_UserSavedEvents(Id: number): Promise<EventModel[]>{
+    return this.http.get<EventModel[]>(`${this.baseUrl}/users/`+Id+"/events").toPromise();
+  }  
   
 
 
