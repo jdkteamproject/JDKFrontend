@@ -36,11 +36,14 @@ here you can change #f3ad00 main color.
 -----------------------------------------------------------------*/
 
 html, body, .sidebar-nav, .content-posts {
+    background-color: #4F5467;
+    background-size: cover;
     height: 100%;
 }
 
 body {
-    background: #edf1f5;
+    background-color: #4F5467;
+    background-size: cover;
     font-family: Poppins, sans-serif;
 }
 
@@ -206,7 +209,7 @@ header .badge {
     position: fixed;
     width: 240px;
     top: 0px;
-    padding: 50px 10px 0px 10px;
+    padding: 50px 10px 50px 10px;
     background: #4F5467;
     z-index: 99;
 }
@@ -286,8 +289,14 @@ header .badge {
 }
 
 .sidebar-right {
-    width: 28%;
-    float: left;
+    width: 240px;
+    top: 15px;
+    padding: 0px 0px 0px 0px;
+    z-index: 150;
+    background-repeat: repeat-y;
+    width: 23%;
+    float: right;
+    height: auto;
 }
 
 .primary-content .container-posts {

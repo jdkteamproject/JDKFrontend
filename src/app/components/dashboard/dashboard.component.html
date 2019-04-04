@@ -54,13 +54,13 @@
     <div class="card">
       <img src="../../../assets/Images/logo.jpg" alt="Avatar" style="width:100%">
       <div class="container">
-        <h4 style="text-align: center"><b>{{currentUser.username}}'s Dashboard</b></h4>
+        <h4 style="text-align: center"><b>Welcome Back {{currentUser.username}}!</b></h4>
+        <h4 style="text-align: center"><b>Dashboard</b></h4>
       </div>
     </div>
   </div>
 
   <!--Wall with Post -->
-
   <div class="content-posts active" id="eventPosts">
     <div class="primary-content">
       <div id="posts-container" class="container-fluid container-posts">
@@ -71,7 +71,8 @@
                 <div class="card-body">
                   <h2>{{event.name}}</h2>
                   <div class="comments">
-                    <p><b>Information:</b>{{event.info}}</p>
+                    <p><b>Information: </b>{{event.info}}</p>
+                    <p><b>City: </b>{{event._embedded.venues[0].city.name}}</p>
                     <p><b>Date: </b>{{event.dates.start.localDate}}</p>
                     <a class="btn btn-secondary" style="color: white" href={{event.url}}>Get Tickets!</a>
                   </div>
@@ -97,12 +98,13 @@
             <li class="list-group-item"><b>City:</b> {{user.region}}</li>
           </ul>
           <div class="card-body">
-            <button id="connectBtn" title="Connect">Connect With User!</button>
+            <button class="btn btn-secondary" style="background-color: rgb(252, 177, 64)" id="connectBtn" title="Connect">Connect With User!</button>
           </div>
         </div>
     </div>
   </div>
 </div>
+<button class="btn btn-secondary topBtn" (click)="toTop()"  title="Go to top">Top of Page</button>
 
 </body>
 

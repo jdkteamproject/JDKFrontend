@@ -13,6 +13,7 @@ export class AdminPageComponent implements OnInit {
   constructor(private dataService: DataService, private authService: AuthenticationService) { }
 
   currentUserId: number;
+  message: string;
 
   currentUser: User = {
     id: null,
@@ -46,8 +47,12 @@ export class AdminPageComponent implements OnInit {
     .catch((e)=>console.log(e));
   }
 
-  deleteUser(u_id: Number){
+  deleteUser(u_id: number){
    console.log("here")
+   this.dataService.getUserById(u_id).then((res) =>{
+    this.message = res.username + " has been deleted.";
+   }).catch((e)=>{console.log(e)})
+
    this.dataService.delete(u_id).then((res)=>{
     console.log(res);
 

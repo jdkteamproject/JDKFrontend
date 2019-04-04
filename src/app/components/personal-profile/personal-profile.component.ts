@@ -49,7 +49,10 @@ export class PersonalProfileComponent implements OnInit {
       this.currentUser = res;
       this.getSavedEvents();
     }).catch((e)=>console.log(e))
+    this.dataService.get_AllEvents();
   }
+
+  
 
   toggle() {
     this.show = !this.show;

@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+body {
+  
+    
+    
+    /* background: linear-gradient(to top, rgb(252, 177, 64), #4F5467); */
+    /* background: url('../../../assets/Images/socialconnects.jpg') no-repeat center center fixed; */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: fill;
+    -o-background-size: cover;
+}/* You can add global styles to this file, and also import other style files */

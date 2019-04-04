@@ -18,9 +18,14 @@ export class EventsComponent implements OnInit {
     private authService: AuthenticationService) {}
 
   selectedKeyword: string = "";
-  printedKeyword: string;
-  searchWord: string = "";
+  selectedRegion: string = "Baltimore";
+  selectedCategory: string = "Arts";
   eventId: string = "";
+  cities: any[] = [];
+  categories: any[] = [];
+  message: string = "";
+  color: string;
+
 
   keywords = [
     { name: "name", value: 1 },
@@ -50,24 +55,65 @@ export class EventsComponent implements OnInit {
 
   ngOnInit() {
     this.currentUserId = +window.localStorage.getItem('userId');
+    this.dataService.getAllCities();
+    this.populateCities();
+    this.populateCategories();
+    
     this.dataService.getUserById(this.currentUserId).then((res)=>{
       this.currentUser = res;
       console.log(this.currentUser);
-      this.getEvents();
+      this.getEventsStart();
     }).catch((e)=>console.log(e))
+  }
+
+  populateCategories(){
+    this.dataService.getAllCategories().then((res) => {
+      const data = res;
+      this.categories = data;
+      this.categories.push("Any Category");
+    })
+    .catch((e) => console.log(e));
+  }
+
+  populateCities(){
+    this.dataService.getAllCities().then((res) => {
+      const data = res;
+      this.cities = data;
+      this.cities.push("All Cities");
+    })
+    .catch((e) => console.log(e));
   }
 
  
   events: Object[] = [];
+  
 
-  getEvents(){
-    this.dataService.get_SearchAllEvents(this.selectedKeyword, this.searchWord).then((res)=>{
+  getEventsStart(){
+    console.log("In Events.ts: Selected Region is: " + this.selectedRegion);
+    this.dataService.get_SearchAllEvents("", "", "").then((res)=>{
       const data = res;
-      console.log(data._embedded);
-      this.events = data._embedded.events;
+      if(data != undefined || data != null){
+        this.events = data._embedded.events;
+      } else {
+         this.events = [];
+      }
 
     })
 
+    .catch((e)=>console.log(e));
+  }
+
+  getEvents(){
+    console.log("In Events.ts: Selected Region is: " + this.selectedRegion);
+    this.dataService.get_SearchAllEvents(this.selectedKeyword, this.selectedCategory, this.selectedRegion).then((res)=>{
+      const data = res;
+      if(data != undefined || data != null){
+        this.events = data._embedded.events;
+      } else {
+         this.events = [];
+      }
+
+    })
     .catch((e)=>console.log(e));
   }
 
@@ -79,8 +125,18 @@ export class EventsComponent implements OnInit {
     console.log(this.event);
     this.dataService.post_SaveEvent(this.currentUser.id, this.event).then((res)=>{
       console.log(res);
+      if(res){
+        this.color = "green";
+        this.message = "Event " + e_id + " Succesfully Saved!";
+      } else{
+        this.color = "red";
+        this.message = "Event " + e_id + " is already saved.";
+      }
+      
     })
-    .catch((e)=>console.log(e));
+    .catch((e)=>{
+      console.log(e)
+    });
   }
 
   verifyAdmin(){

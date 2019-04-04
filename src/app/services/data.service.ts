@@ -2,14 +2,8 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { EventModel } from "src/app/model/events/events.model";
 import { User } from "src/app/model/users/users.model";
-
-
-
 import {Observable} from 'rxjs';
 import { userEvent } from '../model/userEvent/userEvent.model';
-
-
-
 
 @Injectable({
   providedIn: "root"
@@ -18,18 +12,26 @@ import { userEvent } from '../model/userEvent/userEvent.model';
 export class DataService {
 
   baseUrl: string = "http://3.16.216.95:8085/cue";
-  citiesUrl: string = "http://3.16.216.95:8085/cue/info/cities";
-
-
   constructor(private http: HttpClient) {}
 
   get_AllEvents(): Promise<EventModel> {
     return this.http.get<EventModel>(`${this.baseUrl}/api`).toPromise();
   }
 
-  get_SearchAllEvents(keyword: string, searchword: string): Promise<EventModel> {
-    console.log(`${this.baseUrl}/api?`+keyword+`=`+searchword);
-    return this.http.get<EventModel>(`${this.baseUrl}/api?`+keyword+`=`+searchword).toPromise();
+  get_SearchAllEvents(selectedKeyword: string, selectedCategory: string, selectedRegion: string): Promise<EventModel> {
+    if(selectedCategory == "All Categories"){
+      selectedCategory = "";
+    }
+    console.log("Selected Region is: " + selectedRegion);
+    if(selectedRegion == "All Cities"){
+      selectedRegion = "";
+    }
+    selectedKeyword.replace(" ", "%20");
+    selectedCategory.replace(" ", "%20");
+    selectedRegion.replace(" ", "%20");
+
+    console.log(`${this.baseUrl}/api?keyword=`+selectedKeyword+`&category=`+selectedCategory+`&city=`+selectedRegion);
+    return this.http.get<EventModel>(`${this.baseUrl}/api?keyword=`+selectedKeyword+`&category=`+selectedCategory+`&city=`+selectedRegion).toPromise();
   }
 
   get_AllUsersEvents(category: string, region: string): Promise<EventModel> {

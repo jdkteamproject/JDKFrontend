@@ -65,14 +65,14 @@
                 <label for="region"><b>City</b></label>
                 <input type="text" class="form-control" name="city" #city placeholder={{currentUser.region}} required/>
                 <label for="password1"><b>Password</b></label>
-                <input type="text" class="form-control" name="pass1" #pass1 placeholder={{currentUser.password}} required/>
+                <input type="password" class="form-control" name="pass1" #pass1 placeholder="********" required/>
                 <label for="password2"><b>Confirm Password</b></label>
-                <input type="text" class="form-control" name="pass2" #pass2 placeholder={{currentUser.password}} required/>
+                <input type="password" class="form-control" name="pass2" #pass2 placeholder="********" required/>
               </div>
             </div>
             <div class="modal-footer">
-              <button class="btn btn-success" type="button"
-                (click)="updateProfile(email.value, username.value, preference.value, city.value, pass1.value, pass2.value)">Update</button>
+              <button class="btn btn-secondary" style="background-color: rgb(252, 177, 64)" type="button" (click)="updateProfile(email.value, username.value, preference.value, city.value, pass1.value, pass2.value)">Update</button>
+              <button class="btn btn-secondary" type="button" *ngIf="show" (click)="toggle()">Cancel</button>
             </div>
           </form>
         </ng-container>
@@ -83,7 +83,7 @@
               <div class="card" style="text-align: center" style="width: 100%">
                   <img class="card-img-top" src="../../../assets/Images/abstract1.jpg" alt="Card image cap">
                   <div class="card-body">
-                    <h2 class="card-title" style="text-align: center"><b>Profile Information</b></h2>
+                    <h2 class="card-title" style="text-align: center"><b>Information</b></h2>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item"><b>Username:</b> {{currentUser.username}}</li>
                     <li class="list-group-item"><b>Email:</b> {{currentUser.email}}</li>
@@ -91,15 +91,15 @@
                     <li class="list-group-item"><b>City:</b> {{currentUser.region}}</li>
                   </ul>
                   <div class="card-body">
-                    <button class="btn btn-warning" *ngIf="!show" type="button" (click)="toggle()" id="bt">{{ buttonName }}</button>
+                    <button class="btn btn-warning" style="background-color: rgb(252, 177, 64)" *ngIf="!show" type="button" (click)="toggle()" id="bt">{{ buttonName }}</button>
                   </div>
                 </div>
             </div>
           
           <hr>
           <div class="list-group" title="Saved Events">
+            <h2>Saved Event</h2>
             <div class="row">
-              <h2>Saved Events</h2>
               <div class="card-post" *ngFor="let event of events; let i = index" style="width: 85%"> 
                 <div class="row">
                   <div class="card" style="background-color: rgb(252, 177, 64)">
@@ -122,9 +122,6 @@
             </div>
           </div>
         </div>
-
-
-
       </div>
     </div>
   </div>
@@ -138,6 +135,21 @@
       </div>
     </div>
   </div>
+
+
+  <!-- Right Sidebar -->
+  <div class="sidebar-right hidden-xs hidden-sm">
+    <div class="card-post" style="width: 100%">
+      <div class="card" style="text-align: center">
+        <img class="card-img-top" src="../../../assets/Images/ticketmasterlogo.jpg" alt="Card image cap">
+    </div>
+  </div>
+  <div class="card-post" style="width: 100%">
+    <div class="card" style="text-align: center">
+      <img class="card-img-top" src="../../../assets/Images/jdklogo.jpg" alt="Card image cap">
+  </div>
+</div>
+</div>
 </body>
 
 </html>

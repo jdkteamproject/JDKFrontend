@@ -2,13 +2,20 @@
     --input-padding-x: 1.5rem; 
     --input-padding-y: .75rem;
 }
+
+html{
+    background: #4F5467; 
+    height: 100%;
+}
+
 body {
+    height: 100%;
     background: #4F5467;
     /* background: linear-gradient(to top, rgb(252, 177, 64), #4F5467); */
     /* background: url('../../../assets/Images/socialconnects.jpg') no-repeat center center fixed; */
     -webkit-background-size: cover;
     -moz-background-size: cover;
-    background-size: cover;
+    background-size: fill;
     -o-background-size: cover;
 }
 .card-signin {
