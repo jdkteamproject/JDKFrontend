@@ -27,9 +27,20 @@ export class DataService {
     return this.http.get<EventModel>(`${this.baseUrl}/api`).toPromise();
   }
 
-  get_SearchAllEvents(keyword: string, searchword: string): Promise<EventModel> {
-    console.log(`${this.baseUrl}/api?`+keyword+`=`+searchword);
-    return this.http.get<EventModel>(`${this.baseUrl}/api?`+keyword+`=`+searchword).toPromise();
+  get_SearchAllEvents(selectedKeyword: string, selectedCategory: string, selectedRegion: string): Promise<EventModel> {
+    if(selectedCategory == "All Categories"){
+      selectedCategory = "";
+    }
+    console.log("Selected Region is: " + selectedRegion);
+    if(selectedRegion == "All Cities"){
+      selectedRegion = "";
+    }
+    selectedKeyword.replace(" ", "%20");
+    selectedCategory.replace(" ", "%20");
+    selectedRegion.replace(" ", "%20");
+
+    console.log(`${this.baseUrl}/api?keyword=`+selectedKeyword+`&category=`+selectedCategory+`&city=`+selectedRegion);
+    return this.http.get<EventModel>(`${this.baseUrl}/api?keyword=`+selectedKeyword+`&category=`+selectedCategory+`&city=`+selectedRegion).toPromise();
   }
 
   get_AllUsersEvents(category: string, region: string): Promise<EventModel> {
