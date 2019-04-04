@@ -188,7 +188,7 @@ header .badge {
     width: 240px;
     top: 0px;
     padding: 50px 10px 0px 10px;
-    background: #ffffff;
+    background: #4F5467;
     z-index: 99;
 }
 
@@ -199,7 +199,6 @@ header .badge {
 -----------------------------------------------------------------*/
 
 .card-post {
-    background: #ffffff;
     padding: 15px;
     display: block;
     overflow: hidden;
@@ -207,6 +206,11 @@ header .badge {
 }
 
 .container-posts {
+    background: url('../../../assets/Images/background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
     padding: 0 130px;
 }
 
@@ -256,8 +260,8 @@ header .badge {
 .primary-content { width:70%;
                    float: left; }
 
-.sidebar-right  { width:28%;
-                  float: left; }
+.sidebar-right  { width:23%;
+                  float: right; }
 
 .primary-content .container-posts {
     padding: 0 40px;
@@ -462,7 +466,7 @@ footer.login-footer {
 
 @media screen and (max-width:1199px)  {   header { padding: 15px 30px 10px 220px;  }
 
-                                          .sidebar-nav {  width:190px;  }
+                                          .sidebar-nav {  width:175px;  }
 
                                           .content-posts {  margin-left:190px;}
 

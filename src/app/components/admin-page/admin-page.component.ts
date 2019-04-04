@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { DataService } from 'src/app/services/data.service';
 import { User } from '../../model/users/users.model';
-import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-admin-page',
+  templateUrl: './admin-page.component.html',
+  styleUrls: ['./admin-page.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class AdminPageComponent implements OnInit {
 
-  constructor(
-    private dataService: DataService,
-    private authService: AuthenticationService) {}
+  constructor(private dataService: DataService, private authService: AuthenticationService) { }
 
   currentUserId: number;
 
@@ -29,39 +27,46 @@ export class DashboardComponent implements OnInit {
     admin: false,
     banned: false
   }
-  
+
   ngOnInit() {
-    
     this.currentUserId = +window.localStorage.getItem('userId');
     this.dataService.getUserById(this.currentUserId).then((res)=>{
       this.currentUser = res;
       console.log(this.currentUser);
-      this.getEvents();
+      this.getUser();
     }).catch((e)=>console.log(e))
   }
 
-  events: Object[] = [];
+  users: User[] = [];
 
-  getEvents(){
-    this.dataService.get_AllUsersEvents(this.currentUser.category, this.currentUser.region).then((res)=>{
-      const data = res;
-      console.log(data._embedded);
-      this.events = data._embedded.events;
-
+  getUser(){
+    this.dataService.getAllUsers().then((res)=>{
+     this.users=res;
+     
     })
+
     .catch((e)=>console.log(e));
   }
 
-  verifyAdmin(){
-    if(this.currentUser.admin == true){
-      return true;
-    } else {
-      return false;
-    }
+  deleteUser(u_id: Number){
+   console.log("here")
+   this.dataService.delete(u_id).then((res)=>{
+    console.log(res);
+
+    this.getUser();
+    })
+
+   .catch((e)=>console.log(e)); 
+    
   }
 
   logout(){
     this.authService.logoutUser();
+  }
+
+  toTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   }
 
 }

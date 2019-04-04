@@ -228,7 +228,7 @@ header .badge {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-    padding: 0 130px;
+    /* padding: 0 130px; */
 }
 
 .img-post {
