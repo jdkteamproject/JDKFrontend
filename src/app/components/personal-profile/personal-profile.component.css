@@ -216,7 +216,6 @@ header .badge {
 -----------------------------------------------------------------*/
 
 .card-post {
-    background: #ffffff;
     padding: 15px;
     display: block;
     overflow: hidden;
@@ -224,6 +223,11 @@ header .badge {
 }
 
 .container-posts {
+    background: url('../../../assets/Images/background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
     padding: 0 130px;
 }
 
