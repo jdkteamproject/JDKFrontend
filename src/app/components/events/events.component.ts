@@ -56,7 +56,7 @@ export class EventsComponent implements OnInit {
     }).catch((e)=>console.log(e))
   }
 
-
+ 
   events: Object[] = [];
 
   getEvents(){

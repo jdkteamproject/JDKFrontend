@@ -62,8 +62,8 @@ export class DataService {
   }
 
 
-  getAllUsers() {
-    return this.http.get<User[]>(`${this.baseUrl}/users/all`);
+  getAllUsers(): Promise<User[]> {
+    return this.http.get<User[]>(`${this.baseUrl}/users`).toPromise();
   }
 
 
@@ -101,8 +101,9 @@ export class DataService {
     return this.http.put<boolean>(`${this.baseUrl}/users/` + user.id, user).toPromise();
   }
 
-  delete(id: number) {
-    return this.http.delete(`${this.baseUrl}/users/` + id);
+  delete(id: Number): Promise<boolean> {
+    console.log(`${this.baseUrl}/users/` + id);
+    return this.http.delete<boolean>(`${this.baseUrl}/users/` + id).toPromise();
   }
 
 
