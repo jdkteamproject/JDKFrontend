@@ -260,9 +260,16 @@ header .badge {
 .primary-content { width:70%;
                    float: left; }
 
-.sidebar-right  { width:28%;
-                  float: left; }
-
+.sidebar-right  { width:23%;
+                    right: 0;
+                    position: fixed;
+                }
+.topBtn {
+    width:10%;
+    right: 5%;
+    bottom: 1%;
+    position: fixed;
+}
 .primary-content .container-posts {
     padding: 0 40px;
 }

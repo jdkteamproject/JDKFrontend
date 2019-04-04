@@ -45,13 +45,6 @@
           <img src="../../../assets/Images/logo.jpg" alt="Avatar" style="width:100%">
           <div class="container">
               <h4 style="text-align: center"><b>Events</b></h4>
-              <select id="Key-select" [(ngModel)]="selectedKeyword">
-                  <option *ngFor="let keyword of keywords">
-                      {{keyword.name}}
-                   </option>
-              </select>
-              <input [(ngModel)] ="searchWord" name="q" type="text" placeholder="Search..">
-            <button (click)="getEvents()">Search</button>
           </div> 
         </div>
       </div>
@@ -67,12 +60,13 @@
                             <img class="card-img-top" src="{{event.images[0].url}}" alt="Card image cap">
                             <div class="card-body">
                                 <h2>{{event.name}}</h2>
+                                
                                 <div class="comments">
-                                  <p><b>Information:</b> {{event.info}}</p>
-                                  <p><b>Date:</b> {{event.dates.start.localDate}}</p>
+                                  <p><b>Information: </b> {{event.info}}</p>
+                                  <p><b>City: </b> {{event._embedded.venues[0].city.name}}</p>
+                                  <p><b>Date: </b> {{event.dates.start.localDate}}</p>
                                   <p style="visibility:hidden; display:none;">{{event.id}}</p>
                                 </div>
-                                <button class="btn btn-secondary" (click)="toTop()" id="topBtn" title="Go to top">Top</button>
                                 <button class="btn btn-secondary"  (click)="saveEvent(event.id)" id="saveBtn" title="Save Event">Save Event</button>
                                 <a class="btn btn-secondary" style="color: white" href={{event.url}} >Get Tickets!</a>
                             </div>
@@ -84,6 +78,39 @@
         </div>
         
         </div>
+        <!-- Right Side Bar Content-->
+ <div class="sidebar-right hidden-xs hidden-sm">
+  
+  <div class="card-post" style="width: 100%">
+    <div class="card" style="text-align: center">
+      <img class="card-img-top" src="../../../assets/Images/abstract2.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h2 style="text-align: center"><i>Find Events!</i></h2>
+          <div class = "row">
+          <span id="regionLabel">Region: </span>
+              <select [(ngModel)]="selectedRegion" id="selectRegion">
+                  <option *ngFor="let city of cities">{{ city }}</option>
+              </select>
+            </div>
+          <div class="row">
+          <span id="categoryLabel">Category: </span>
+              <select [(ngModel)]="selectedCategory" id="selectCategory">
+                 <option *ngFor="let category of categories">{{ category }}</option>
+              </select> 
+            </div>
+          <div class="row">
+          <span id="keywordLabel">Keyword: </span>
+          <input [(ngModel)] ="selectedKeyword" name="q" type="text" placeholder="Search..">
+          <button class="btn btn-secondary" (click)="getEvents()">Search</button>
+          </div>
         
+
+
+      </div>
+  </div>
+</div>
+</div>
+<button class="btn btn-secondary topBtn" (click)="toTop()"  title="Go to top">Top of Page</button>
+
   </body>
 </html>
