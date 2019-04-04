@@ -28,8 +28,8 @@
 
     </div>
     <div class="second-icon menu-icon">
-      <span><a routerLink (click)="logout()" title="Logout"><span class="hidden-xs hidden-sm">Logout</span> <i class="fa fa-database"
-            aria-hidden="true"></i></a>
+      <span><a routerLink (click)="logout()" title="Logout"><span class="hidden-xs hidden-sm">Logout</span> <i
+            class="fa fa-database" aria-hidden="true"></i></a>
       </span>
     </div>
     <div class="second-icon menu-icon" *ngIf="verifyAdmin()">
@@ -63,27 +63,28 @@
 
   <div class="content-posts active" id="eventPosts">
     <div class="primary-content">
-        <div id="posts-container" class="container-fluid container-posts">
-          <div class="row">
-            <div class="card-post" *ngFor="let event of events" >
-                <div class="row">
-                    <div class=" col-sm-8 col-sm-offset-2 data-post">
-                      <p>{{event.name}}</p>
-                      <p>{{event.dates.start.localDate}}</p>
-                      <img src="{{event.images[0].url}}">
-                      <div class="comments">
-                        <p>{{event.info}}</p>
-                        <p>{{event.url}}</p>
-                      </div>
-                    </div>
+      <div id="posts-container" class="container-fluid container-posts">
+        <div class="row">
+          <div class="card-post" *ngFor="let event of events">
+            <div class="row">
+              <div class="card" style="background-color: rgb(252, 177, 64)">
+                <img class="card-img-top" src="{{event.images[0].url}}" alt="Card image cap">
+                <div class="card-body">
+                  <h2>{{event.name}}</h2>
+                  <div class="comments">
+                    <p><b>Information:</b>{{event.info}}</p>
+                    <p><b>Date: </b>{{event.dates.start.localDate}}</p>
+                    <a class="btn btn-secondary" href={{event.url}}>Get Tickets!</a>
+                  </div>
                 </div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
     </div>
-    </div>
+  </div>
 
-      
 </body>
 
 </html>
