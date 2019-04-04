@@ -103,7 +103,9 @@
           <input [(ngModel)] ="selectedKeyword" name="q" type="text" placeholder="Search..">
           <button class="btn btn-secondary" (click)="getEvents()">Search</button>
           </div>
-        
+        <div style="text-align: center" [ngStyle]="{ 'color': color }">
+            <p>{{ message }}</p>
+        </div>
 
 
       </div>

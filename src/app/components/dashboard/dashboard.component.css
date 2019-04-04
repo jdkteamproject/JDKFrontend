@@ -37,6 +37,13 @@ here you can change #f3ad00 main color.
 1. Body
 -----------------------------------------------------------------*/
 
+.topBtn {
+    width:10%;
+    right: 6.49%;
+    bottom: 1%;
+    position: fixed;
+    }
+    
 html, body, .sidebar-nav, .content-posts {
     height: 100%;
 }

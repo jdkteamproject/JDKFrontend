@@ -16,6 +16,11 @@ export class DashboardComponent implements OnInit {
 
   currentUserId: number;
 
+  toTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+  
   currentUser: User = {
     id: null,
     email: '',
