@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { DataService } from 'src/app/services/data.service';
+import { User } from '../../model/users/users.model';
 
 @Component({
   selector: 'app-admin-page',
@@ -8,13 +10,65 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class AdminPageComponent implements OnInit {
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private dataService: DataService, private authService: AuthenticationService) { }
+
+  currentUserId: number;
+
+  currentUser: User = {
+    id: null,
+    email: '',
+    username: '',
+    password: '',
+    reportedNum: null,
+    region: '',
+    category: '',
+    favEvents: [],
+    notifications: [],
+    admin: false,
+    banned: false
+  }
 
   ngOnInit() {
+    this.currentUserId = +window.localStorage.getItem('userId');
+    this.dataService.getUserById(this.currentUserId).then((res)=>{
+      this.currentUser = res;
+      console.log(this.currentUser);
+      this.getUser();
+    }).catch((e)=>console.log(e))
+  }
+
+  users: User[] = [];
+
+  getUser(){
+    this.dataService.getAllUsers().then((res)=>{
+      console.log("test")
+      let data = res;
+      console.log(data);
+      for(var i = 0; i< data.length; i++){
+        this.users[i] = data[i];
+      }
+    })
+
+    .catch((e)=>console.log(e));
+  }
+
+  deleteUser(u_id: Number){
+   console.log("here")
+   this.dataService.delete(u_id).then((res)=>{
+    console.log(res);
+    })
+
+   .catch((e)=>console.log(e)); 
+    
   }
 
   logout(){
     this.authService.logoutUser();
+  }
+
+  toTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   }
 
 }
