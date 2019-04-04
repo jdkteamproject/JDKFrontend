@@ -71,8 +71,8 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button class="btn btn-success" type="button"
-                (click)="updateProfile(email.value, username.value, preference.value, city.value, pass1.value, pass2.value)">Update</button>
+              <button class="btn btn-secondary" type="button" (click)="updateProfile(email.value, username.value, preference.value, city.value, pass1.value, pass2.value)">Update</button>
+              <button class="btn btn-secondary" type="button" *ngIf="show" (click)="toggle()">Cancel</button>
             </div>
           </form>
         </ng-container>
@@ -83,7 +83,7 @@
               <div class="card" style="text-align: center" style="width: 100%">
                   <img class="card-img-top" src="../../../assets/Images/abstract1.jpg" alt="Card image cap">
                   <div class="card-body">
-                    <h2 class="card-title" style="text-align: center"><b>Profile Information</b></h2>
+                    <h2 class="card-title" style="text-align: center"><b>Information</b></h2>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item"><b>Username:</b> {{currentUser.username}}</li>
                     <li class="list-group-item"><b>Email:</b> {{currentUser.email}}</li>
@@ -91,7 +91,7 @@
                     <li class="list-group-item"><b>City:</b> {{currentUser.region}}</li>
                   </ul>
                   <div class="card-body">
-                    <button class="btn btn-warning" *ngIf="!show" type="button" (click)="toggle()" id="bt">{{ buttonName }}</button>
+                    <button class="btn btn-warning" style="background-color: rgb(252, 177, 64)" *ngIf="!show" type="button" (click)="toggle()" id="bt">{{ buttonName }}</button>
                   </div>
                 </div>
             </div>
@@ -122,9 +122,6 @@
             </div>
           </div>
         </div>
-
-
-
       </div>
     </div>
   </div>
@@ -138,6 +135,18 @@
       </div>
     </div>
   </div>
+
+
+  <!-- Right Sidebar -->
+  <div class="sidebar-right hidden-xs hidden-sm">
+    <div class="card-post" style="width: 100%">
+      <div class="card" style="text-align: center">
+        <img class="card-img-top" src="../../../assets/Images/ticketmasterlogo.jpg" alt="Card image cap">
+    </div>
+  </div>
+</div>
+
+
 </body>
 
 </html>

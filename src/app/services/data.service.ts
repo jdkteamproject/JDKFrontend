@@ -2,14 +2,8 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { EventModel } from "src/app/model/events/events.model";
 import { User } from "src/app/model/users/users.model";
-
-
-
 import {Observable} from 'rxjs';
 import { userEvent } from '../model/userEvent/userEvent.model';
-
-
-
 
 @Injectable({
   providedIn: "root"
@@ -18,9 +12,6 @@ import { userEvent } from '../model/userEvent/userEvent.model';
 export class DataService {
 
   baseUrl: string = "http://3.16.216.95:8085/cue";
-  citiesUrl: string = "http://3.16.216.95:8085/cue/info/cities";
-
-
   constructor(private http: HttpClient) {}
 
   get_AllEvents(): Promise<EventModel> {

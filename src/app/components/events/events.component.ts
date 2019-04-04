@@ -59,6 +59,7 @@ export class EventsComponent implements OnInit {
 
  
   events: Object[] = [];
+  
 
   getEvents(){
     this.dataService.get_SearchAllEvents(this.selectedKeyword, this.searchWord).then((res)=>{
@@ -67,7 +68,6 @@ export class EventsComponent implements OnInit {
       this.events = data._embedded.events;
 
     })
-
     .catch((e)=>console.log(e));
   }
 
