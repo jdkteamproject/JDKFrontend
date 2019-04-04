@@ -41,10 +41,8 @@ export class AdminPageComponent implements OnInit {
 
   getUser(){
     this.dataService.getAllUsers().then((res)=>{
-     this.users=res;
-     
+     this.users=res; 
     })
-
     .catch((e)=>console.log(e));
   }
 
