@@ -53,6 +53,7 @@ export class EventsComponent implements OnInit {
     this.dataService.getUserById(this.currentUserId).then((res)=>{
       this.currentUser = res;
       console.log(this.currentUser);
+      this.getEvents();
     }).catch((e)=>console.log(e))
   }
 
