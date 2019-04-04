@@ -87,19 +87,19 @@
         <div class="card-body">
             <h2 style="text-align: center"><i>Find Events!</i></h2>
           <div class = "row">
-          <span id="regionLabel">Region: </span>
+          <span id="regionLabel"><b>Region:</b></span>
               <select [(ngModel)]="selectedRegion" id="selectRegion">
-                  <option *ngFor="let city of cities">{{ city }}</option>
+                  <option *ngFor="let city of cities"> {{ city }}</option>
               </select>
             </div>
           <div class="row">
-          <span id="categoryLabel">Category: </span>
+          <span id="categoryLabel"><b>Category:</b></span>
               <select [(ngModel)]="selectedCategory" id="selectCategory">
-                 <option *ngFor="let category of categories">{{ category }}</option>
+                 <option *ngFor="let category of categories"> {{ category }}</option>
               </select> 
             </div>
           <div class="row">
-          <span id="keywordLabel">Keyword: </span>
+          <span id="keywordLabel"><b>Keyword:</b></span>
           <input [(ngModel)] ="selectedKeyword" name="q" type="text" placeholder="Search..">
           <button class="btn btn-secondary" (click)="getEvents()">Search</button>
           </div>
