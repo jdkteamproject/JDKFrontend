@@ -61,9 +61,8 @@
                     <li class="list-group-item"><b>Category:</b> {{user.category}}</li>
                     <li class="list-group-item"><b>City:</b> {{user.region}}</li>
                   </ul>
-                  <div class="card-body">
-                    <button (click)="toTop()" id="topBtn" title="Go to top">Top</button>
-                    <button (click)="deleteUser(user.id)" id="deleteBtn" title="Delete Event">Remove User</button>
+                  <div *ngIf="user.admin != 1" class="card-body">
+                    <button (click)="deleteUser(user.id)" class="btn btn-secondary" style="background-color: rgb(252, 177, 64)" id="deleteBtn" title="Delete Event">Remove User</button>
                   </div>
                 </div>
             </div>
@@ -82,6 +81,23 @@
       </div>
     </div>
   </div>
+
+<!--Right Sidebar-->
+<div class="sidebar-right hidden-xs hidden-sm">
+  
+    <div class="card-post" style="width: 100%">
+      <div class="card" style="text-align: center">
+        <img class="card-img-top" src="../../../assets/Images/abstract2.jpg" alt="Card image cap">
+          <div style="color: green;" class="card-body">
+              <p>{{ message }}</p>            
+          </div>
+    </div>
+  </div>
+  </div>
+  <button class="btn btn-secondary topBtn" (click)="toTop()"  title="Go to top">Top of Page</button>
+
+
 </body>
+
 
 </html>

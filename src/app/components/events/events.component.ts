@@ -23,6 +23,8 @@ export class EventsComponent implements OnInit {
   eventId: string = "";
   cities: any[] = [];
   categories: any[] = [];
+  message: string = "";
+  color: string;
 
 
   keywords = [
@@ -123,8 +125,18 @@ export class EventsComponent implements OnInit {
     console.log(this.event);
     this.dataService.post_SaveEvent(this.currentUser.id, this.event).then((res)=>{
       console.log(res);
+      if(res){
+        this.color = "green";
+        this.message = "Event " + e_id + " Succesfully Saved!";
+      } else{
+        this.color = "red";
+        this.message = "Event " + e_id + " is already saved.";
+      }
+      
     })
-    .catch((e)=>console.log(e));
+    .catch((e)=>{
+      console.log(e)
+    });
   }
 
   verifyAdmin(){
