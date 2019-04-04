@@ -66,12 +66,7 @@ export class PersonalProfileComponent implements OnInit {
 
   getSavedEvents(){
     this.dataService.get_UserSavedEvents(this.currentUser.id).then((res)=>{
-      console.log("working?");
-      let data = res;
-      console.log(data);
-      for(var i = 0; i < data.length; i++){
-        this.events[i] = data[i];
-      }
+    this.events=res;
     })
     .catch((e)=>console.log(e));
   }
@@ -86,6 +81,7 @@ export class PersonalProfileComponent implements OnInit {
     this.currentUser.favEvents = this.userEvents;
     this.dataService.update(this.currentUser).then((res)=>{
       console.log(res);
+    this.getSavedEvents();
     })
     .catch((e)=>console.log(e));
   }
