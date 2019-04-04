@@ -74,9 +74,7 @@ export class RegisterComponent implements OnInit {
       }).catch((e)=>{console.log(e)})
       console.log(this.User);
       this.router.navigate(['/']);
-    } 
-
-    
+    }   
   }
 
   

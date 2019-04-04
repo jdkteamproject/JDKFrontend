@@ -38,9 +38,11 @@ export class DashboardComponent implements OnInit {
       console.log(this.currentUser);
       this.getEvents();
     }).catch((e)=>console.log(e))
+    this.getUsers();
   }
 
   events: Object[] = [];
+  users: User[] = [];
 
   getEvents(){
     this.dataService.get_AllUsersEvents(this.currentUser.category, this.currentUser.region).then((res)=>{
@@ -48,6 +50,13 @@ export class DashboardComponent implements OnInit {
       console.log(data._embedded);
       this.events = data._embedded.events;
 
+    })
+    .catch((e)=>console.log(e));
+  }
+
+  getUsers(){
+    this.dataService.getAllUsers().then((res)=>{
+     this.users=res; 
     })
     .catch((e)=>console.log(e));
   }
