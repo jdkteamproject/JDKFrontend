@@ -86,115 +86,22 @@
 
   <!-- Right Side Bar Content-->
   <div class="sidebar-right hidden-xs hidden-sm">
-    <div class="card-post">
-        <div class="row">
-            <div class="col-sm-12">
-                <p><i>Connections!</i></p>
-                <h3><a href="#" title="Company">Company</a></h3>
-                <img src="https://placehold.it/300x300" alt="Suggested post">
-            </div>
+    <h2 style="text-align: center"><i>Connections!</i></h2>
+    <div class="card-post" style="width: 100%" *ngFor="let user of users; let i = index">
+      <div class="card" style="text-align: center">
+        <img class="card-img-top" src="../../../assets/Images/abstract2.jpg" alt="Card image cap">
+          <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>Username:</b> {{user.username}}</li>
+            <li class="list-group-item"><b>Category:</b> {{user.category}}</li>
+            <li class="list-group-item"><b>City:</b> {{user.region}}</li>
+          </ul>
+          <div class="card-body">
+            <button id="connectBtn" title="Connect">Connect With User!</button>
+          </div>
         </div>
     </div>
-    <div class="card-post">
-        <div class="row">
-            <div class="col-sm-12">
-                <h3>Popular Users</h3>
-            </div>
-            <div class="col-xs-3 popular-img">
-              <a href="#">
-                <img src="https://placehold.it/300x300" alt="User name" class="img-circle">
-              </a>
-            </div>
-            <div class="col-xs-3 popular-img">
-              <a href="#">
-                <img src="https://placehold.it/300x300" alt="User name" class="img-circle">
-              </a>
-            </div>
-            <div class="col-xs-3 popular-img">
-              <a href="#">
-                <img src="https://placehold.it/300x300" alt="User name" class="img-circle">
-              </a>
-            </div>
-            <div class="col-xs-3 popular-img">
-              <a href="#">
-                <img src="https://placehold.it/300x300" alt="User name" class="img-circle">
-              </a>
-            </div>
-            <div class="col-xs-3 popular-img">
-              <a href="#">
-                <img src="https://placehold.it/300x300" alt="User name" class="img-circle">
-              </a>
-            </div>
-            <div class="col-xs-3 popular-img">
-              <a href="#">
-                <img src="https://placehold.it/300x300" alt="User name" class="img-circle">
-              </a>
-            </div>
-            <div class="col-xs-3 popular-img">
-              <a href="#">
-                <img src="https://placehold.it/300x300" alt="User name" class="img-circle">
-              </a>
-            </div>
-            <div class="col-xs-3 popular-img">
-              <a href="#">
-                <img src="https://placehold.it/300x300" alt="User name" class="img-circle">
-              </a>
-            </div>
-      </div>
-   </div>
-   <div class="card-post">
-     <div class="row">
-         <div class="col-sm-12">
-             <h3>Popular Photos</h3>
-         </div>
-         <div class="col-xs-4 popular-img">
-           <a href="#">
-             <img src="https://placehold.it/300x300" alt="User name">
-           </a>
-         </div>
-         <div class="col-xs-4 popular-img">
-           <a href="#">
-             <img src="https://placehold.it/300x300" alt="User name">
-           </a>
-         </div>
-         <div class="col-xs-4 popular-img">
-           <a href="#">
-             <img src="https://placehold.it/300x300" alt="User name">
-           </a>
-         </div>
-         <div class="col-xs-4 popular-img">
-           <a href="#">
-             <img src="https://placehold.it/300x300" alt="User name">
-           </a>
-         </div>
-         <div class="col-xs-4 popular-img">
-           <a href="#">
-             <img src="https://placehold.it/300x300" alt="User name">
-           </a>
-         </div>
-         <div class="col-xs-4 popular-img">
-           <a href="#">
-             <img src="https://placehold.it/300x300" alt="User name">
-           </a>
-         </div>
-         <div class="col-xs-4 popular-img">
-           <a href="#">
-             <img src="https://placehold.it/300x300" alt="User name">
-           </a>
-         </div>
-         <div class="col-xs-4 popular-img">
-           <a href="#">
-             <img src="https://placehold.it/300x300" alt="User name">
-           </a>
-         </div>
-         <div class="col-xs-4 popular-img">
-           <a href="#">
-             <img src="https://placehold.it/300x300" alt="User name">
-           </a>
-         </div>
-   </div>
-   </div>
-
+  </div>
 </div>
 
 </body>
