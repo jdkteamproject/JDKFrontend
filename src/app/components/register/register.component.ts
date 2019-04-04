@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from "../../model/users/users.model";
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
+import {FormsModule, EmailValidator} from '@angular/forms'
 
 @Component({
   selector: 'app-register',
@@ -17,6 +18,11 @@ export class RegisterComponent implements OnInit {
   cities: any[] = [];
   categories: any[] = [];
 
+  model: any = {};
+
+  onSubmit() {
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
+  }
   
   User : User = {
     id: null,
@@ -43,16 +49,32 @@ export class RegisterComponent implements OnInit {
     this.User.admin = false;
     this.User.banned = false;
 
-    if(password1 == password2){
+    
+    if(username == " " || username.length<5 || username== null){
+      this.router.navigate(['/Register']);
+      console.log("username fail");
+    }else if(email == null||!email.match("[^@]+@[^\\.]+\\..+")){
+      this.router.navigate(['/Register']);
+      console.log("email fail");
+    }else if(password1 == null || password1.match("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})")){
+      // 1 uppercase letter
+      // 1 lowercase letter
+      // A number
+      // A minimum length of 8
+      
+      this.router.navigate(['/Register']);
+      console.log("password fail");
+    }else if(password1 != password2){
+      this.router.navigate(['/Register']);
+      console.log("passwords don't match")
+    }else if(password1 == password2){
       this.User.password = password1;
       this.dataService.register(this.User).then((res)=>{
-        console.log("Creating user " + this.User.username + ": " + res);
+        console.log("Creating user " + username + ": " + res);
       }).catch((e)=>{console.log(e)})
       console.log(this.User);
       this.router.navigate(['/']);
-    } else if(password1 != password2){
-      console.log("Passwords don't match!");
-    }
+    } 
 
     
   }
