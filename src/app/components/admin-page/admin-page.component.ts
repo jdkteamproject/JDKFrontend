@@ -41,12 +41,8 @@ export class AdminPageComponent implements OnInit {
 
   getUser(){
     this.dataService.getAllUsers().then((res)=>{
-      console.log("test")
-      let data = res;
-      console.log(data);
-      for(var i = 0; i< data.length; i++){
-        this.users[i] = data[i];
-      }
+     this.users=res;
+     
     })
 
     .catch((e)=>console.log(e));
@@ -56,6 +52,8 @@ export class AdminPageComponent implements OnInit {
    console.log("here")
    this.dataService.delete(u_id).then((res)=>{
     console.log(res);
+
+    this.getUser();
     })
 
    .catch((e)=>console.log(e)); 
