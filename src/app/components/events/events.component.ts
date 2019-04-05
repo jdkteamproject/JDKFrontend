@@ -127,7 +127,7 @@ export class EventsComponent implements OnInit {
       console.log(res);
       if(res){
         this.color = "green";
-        this.message = "Event " + e_id + " Succesfully Saved!";
+        this.message = "Event " + e_id + " Successfully Saved!";
       } else{
         this.color = "red";
         this.message = "Event " + e_id + " is already saved.";

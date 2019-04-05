@@ -36,6 +36,29 @@ here you can change #f3ad00 main color.
 /*----------------------------------------------------------------
 1. Body
 -----------------------------------------------------------------*/
+@media only screen and (max-width: 770px) {
+    .contentHide{
+        display: none !important;
+    }
+
+    .topBtn {
+        width:60% !important;
+        left: 18.7%;
+        bottom: 1%;
+        position: fixed;
+    }
+
+    .searchContent{
+        position: fixed;
+        left: 0;
+    }
+
+    .eventsCard{
+        margin-top: 150px;
+    }
+    
+  }
+
 
 html, body, .sidebar-nav, .content-posts {
     height: 100%;
