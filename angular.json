@@ -133,5 +133,8 @@
       }
     }
   },
-  "defaultProject": "JDKAngular"
+  "defaultProject": "JDKAngular",
+  "cli": {
+    "analytics": false
+  }
 }
