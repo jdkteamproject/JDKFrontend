@@ -35,7 +35,28 @@ here you can change #f3ad00 main color.
 1. Body
 -----------------------------------------------------------------*/
 
-html, body, .sidebar-nav, .sidebar-right, .content-posts {
+@media only screen and (max-width: 770px) {
+    .contentHide{
+        display: none !important;
+    }
+
+    .topBtn {
+        width:60% !important;
+        left: 18.7%;
+        bottom: 1%;
+        position: fixed;
+    }
+    
+  }
+
+  .topBtn {
+    width:10%;
+    right: 6.49%;
+    bottom: 1%;
+    position: fixed;
+    }
+
+html, body, .sidebar-nav, .content-posts {
     background-color: #4F5467;
     background-size: cover;
     height: 100%;
@@ -293,7 +314,6 @@ header .badge {
     top: 15px;
     padding: 0px 0px 0px 0px;
     z-index: 150;
-    background-color: #4F5467;
     background-repeat: repeat-y;
     width: 23%;
     float: right;

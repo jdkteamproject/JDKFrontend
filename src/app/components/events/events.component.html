@@ -40,7 +40,7 @@
     </header>
 
     <!--Left Sidebar with info Profile -->
-    <div class="sidebar-nav">
+    <div class="sidebar-nav contentHide">
         <div class="card">
           <img src="../../../assets/Images/logo.jpg" alt="Avatar" style="width:100%">
           <div class="container">
@@ -56,7 +56,7 @@
               <div class="row">
                 <div class="card-post" *ngFor="let event of events" style="width: 100%">
                     <div class="row">
-                        <div class="card" style="background-color: rgb(252, 177, 64)">
+                        <div class="card eventsCard" style="background-color: rgb(252, 177, 64);">
                             <img class="card-img-top" src="{{event.images[0].url}}" alt="Card image cap">
                             <div class="card-body">
                                 <h2>{{event.name}}</h2>
@@ -81,11 +81,11 @@
         <!-- Right Side Bar Content-->
  <div class="sidebar-right hidden-xs hidden-sm">
   
-  <div class="card-post" style="width: 100%">
-    <div class="card" style="text-align: center">
-      <img class="card-img-top" src="../../../assets/Images/abstract2.jpg" alt="Card image cap">
+  <div class="card-post searchContent" style="width: 100%">
+    <div class="card" style="text-align: center;">
+      <img class="card-img-top contentHide" src="../../../assets/Images/abstract2.jpg" alt="Card image cap">
         <div class="card-body">
-            <h2 style="text-align: center"><i>Find Events!</i></h2>
+            <h2 class="contentHide"style="text-align: center"><i>Find Events!</i></h2>
           <div class = "row">
           <span id="regionLabel"><b>Region:</b></span>
               <select [(ngModel)]="selectedRegion" id="selectRegion">
@@ -103,7 +103,9 @@
           <input [(ngModel)] ="selectedKeyword" name="q" type="text" placeholder="Search..">
           <button class="btn btn-secondary" (click)="getEvents()">Search</button>
           </div>
-        
+        <div style="text-align: center" [ngStyle]="{ 'color': color }">
+            <p>{{ message }}</p>
+        </div>
 
 
       </div>

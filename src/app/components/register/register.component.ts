@@ -17,9 +17,11 @@ export class RegisterComponent implements OnInit {
 
   cities: any[] = [];
   categories: any[] = [];
+  message: string = "";
+  messageColor: string = "red";
 
   model: any = {};
-
+  
   onSubmit() {
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
   }
@@ -51,25 +53,27 @@ export class RegisterComponent implements OnInit {
 
     
     if(username == " " || username.length<5 || username== null){
-      this.router.navigate(['/Register']);
+      this.message = "Invalid Username";
       console.log("username fail");
     }else if(email == null||!email.match("[^@]+@[^\\.]+\\..+")){
-      this.router.navigate(['/Register']);
+      this.message = "Invalid email";
       console.log("email fail");
-    }else if(password1 == null || password1.match("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})")){
+    }else if(password1 == "" || password1 == undefined || password1 == null || password1.match("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})")){
       // 1 uppercase letter
       // 1 lowercase letter
       // A number
       // A minimum length of 8
       
-      this.router.navigate(['/Register']);
+      this.message = "Invalid Password";
       console.log("password fail");
     }else if(password1 != password2){
-      this.router.navigate(['/Register']);
+      this.message = "Password does not match";
       console.log("passwords don't match")
     }else if(password1 == password2){
       this.User.password = password1;
       this.dataService.register(this.User).then((res)=>{
+        this.messageColor = "green";
+        this.message = "Creating User...";
         console.log("Creating user " + username + ": " + res);
       }).catch((e)=>{console.log(e)})
       console.log(this.User);

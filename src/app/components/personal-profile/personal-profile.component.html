@@ -65,9 +65,9 @@
                 <label for="region"><b>City</b></label>
                 <input type="text" class="form-control" name="city" #city placeholder={{currentUser.region}} required/>
                 <label for="password1"><b>Password</b></label>
-                <input type="text" class="form-control" name="pass1" #pass1 placeholder={{currentUser.password}} required/>
+                <input type="password" class="form-control" name="pass1" #pass1 placeholder="********" required/>
                 <label for="password2"><b>Confirm Password</b></label>
-                <input type="text" class="form-control" name="pass2" #pass2 placeholder={{currentUser.password}} required/>
+                <input type="password" class="form-control" name="pass2" #pass2 placeholder="********" required/>
               </div>
             </div>
             <div class="modal-footer">
@@ -98,8 +98,8 @@
           
           <hr>
           <div class="list-group" title="Saved Events">
+            <h2>Saved Event</h2>
             <div class="row">
-              <h2>Saved Events</h2>
               <div class="card-post" *ngFor="let event of events; let i = index" style="width: 85%"> 
                 <div class="row">
                   <div class="card" style="background-color: rgb(252, 177, 64)">
@@ -127,7 +127,7 @@
   </div>
 
   <!--Left Sidebar with info Profile -->
-  <div class="sidebar-nav">
+  <div class="sidebar-nav contentHide">
     <div class="card">
       <img src="../../../assets/Images/logo.jpg" alt="Avatar" style="width:100%">
       <div class="container">
@@ -138,7 +138,7 @@
 
 
   <!-- Right Sidebar -->
-  <div class="sidebar-right hidden-xs hidden-sm">
+  <div class="sidebar-right hidden-xs hidden-sm contentHide">
     <div class="card-post" style="width: 100%">
       <div class="card" style="text-align: center">
         <img class="card-img-top" src="../../../assets/Images/ticketmasterlogo.jpg" alt="Card image cap">
